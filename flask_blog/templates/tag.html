@@ -1,5 +1,5 @@
 
-<h1>Welcome to FlaskBlog </h1>
+<h1 class="px-3 py-1">Welcome to FlaskBlog </h1>
 
 
 <head>
@@ -11,19 +11,19 @@
     <link rel="stylesheet" href="index.css" />
 </head>
 
-<body style="background-color: rgba(231,228,223,0.1); font-family: stylesheet;">
-    <div class="p-1 d-flex justify-content-center" style ="font-size:xx-large; color: black;">
-        Tags
+<body style="background-color:rgb(255, 243, 213); font-family: stylesheet;">
+    <div class="p-1 d-flex justify-content-center" style ="font-size:xxx-large; color:3A4D3A;">
+        -: Tags :-
     </div>
-    <div class="p-2 d-flex justify-content-center" style="color: black; font-size:x-large;">
+    <div class="p-2 d-flex justify-content-center" style="color:3A4D3A; font-size:xx-large;">
         A tag is a label that categorizes your question with other, similar questions. Using the right tags makes it easier for others to find and answer your question.
     </div>
 
     <!-- filters button -->
     <div class="d-flex justify-content-center">
         <div class="col-4 px-3 py-2">
-            <form action="/action_page.php">
-                <input class="form-control" list="tags" name="tag" id="tag">
+            <form action="/action_page.php" style="border:solid 1px; border-radius:7px;">
+                <input style="background-color: rgb(255, 249, 242)"class="form-control" list="tags" name="tag" id="tag">
                 <datalist id="tags">
                   <option value="Python">
                   <option value="JavaScript">
@@ -37,134 +37,141 @@
     
     <div class="row px-4">
         {% for post in b %}
-        <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 p-3">
-            <div style="border-color:rgb(88, 88, 88); border: solid 1.5px ; border-radius: 5px; color:black; word-wrap: break-word; height: 10rem;font-size: large; cursor: pointer; " class="p-3">
-                {{ post }}
-                <div style=" color: rgb(88, 88, 88);" > 
-                 Python is a multi-paradigm, dynamically typed, multi-purpose programming language. 
-                    ...
+        <div class="tag_col col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 p-3">
+            <div style="border-color:rgb(88, 88, 88); border: solid 1.5px ; border-radius: 5px; color:3A4D3A; word-wrap: break-word; height: 10rem;font-size: large;cursor: pointer " class="tag_box p-3">
+                <div class="tag_title" style="font-style: italic; font-weight: bold;">
+                    {{ post }}
                 </div>
-                <div class="d-flex justify-content-end " style="color: rgb(88, 88, 88)">
+                <div class="tag_body" style=" color: rgb(88, 88, 88);" > 
+                    Python is a multi-paradigm, dynamically typed, multi-purpose programming language.
+                </div>
+                <div class="tag_questions d-flex justify-content-end " style="color: rgb(88, 88, 88)">
                     1000 questions
                 </div>
             </div>
         </div>    
         {% endfor %}
     </div> 
+
     <!-- <div class="row px-4">
         <div class="tag_col col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 p-3">
-            <div style="border-color:rgb(88, 88, 88); border: solid 1.5px ; border-radius: 5px; color:black; word-wrap: break-word; height: 10rem;font-size: large;cursor: pointer " class="tag_box p-3">
-                <div class="tag_title">
+            <div style="border-color:rgb(88, 88, 88); border: solid 1.5px ; border-radius: 5px; color:3A4D3A; word-wrap: break-word; height: 10rem;font-size: large;cursor: pointer " class="tag_box p-3">
+                <div class="tag_title" style="font-style: italic; font-weight: bold;">
                     #pyhton
                 </div>
-                <div style=" color: rgb(88, 88, 88);" > 
-                    Python is a multi-paradigm, dynamically typed, multi-purpose programming language. 
-                    ...
+                <div class="tag_body" style=" color: rgb(88, 88, 88);" > 
+                    Python is a multi-paradigm, dynamically typed, multi-purpose programming language.
                 </div>
-                <div class="d-flex justify-content-end " style="color: rgb(88, 88, 88)">
+                <div class="tag_questions d-flex justify-content-end " style="color: rgb(88, 88, 88)">
                     1000 questions
                 </div>
             </div>
         </div>
 
         <div class="tag_col col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 p-3">
-            <div style="border-color:rgb(88, 88, 88); border: solid 1.5px ; border-radius: 5px; border-radius: 5px; color:black; word-wrap: break-word; height: 10rem;font-size: large;cursor: pointer " class="tag_box p-3">
-                <div class="tag_title">
+            <div style="border-color:rgb(88, 88, 88); border: solid 1.5px ; border-radius: 5px; border-radius: 5px; color:3A4D3A; word-wrap: break-word; height: 10rem;font-size: large;cursor: pointer " class="tag_box p-3">
+                <div class="tag_title" style="font-style: italic; font-weight: bold;">
                     #javascript
                 </div>
                 <div class="tag_body" style=" color: rgb(88, 88, 88);"> 
                     For questions about programming in ECMAScript (JavaScript/JS) and its different dialects                
                 </div>
-                <div class="d-flex justify-content-end " style="color: rgb(88, 88, 88)">
+                <div class="tag_questions d-flex justify-content-end " style="color: rgb(88, 88, 88)">
                     1000 questions
                 </div>
             </div>
         </div>
 
         <div class="tag_col col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 p-3">
-            <div style="border-color:rgb(88, 88, 88); border: solid 1.5px ; border-radius: 5px; border-radius: 5px; color:black; word-wrap: break-word; height: 10rem;font-size: large;cursor: pointer " class="tag_box p-3">
-                <div class="tag_title">
+            <div style="border-color:rgb(88, 88, 88); border: solid 1.5px ; border-radius: 5px; border-radius: 5px; color:3A4D3A; word-wrap: break-word; height: 10rem;font-size: large;cursor: pointer " class="tag_box p-3">
+                <div class="tag_title" style="font-style: italic; font-weight: bold;">
                     #css
                 </div>
                 <div class="tag_body" style=" color: rgb(88, 88, 88);"> 
                     CSS (Cascading Style Sheets) is  representation style sheet language                
                 </div>
-                <div class="d-flex justify-content-end " style="color: rgb(88, 88, 88)"">
+                <div class="tag_questions d-flex justify-content-end " style="color: rgb(88, 88, 88)"">
                     1000 questions
                 </div>
             </div>
         </div>
 
         <div class="tag_col col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 p-3">
-            <div style="border-color:rgb(88, 88, 88); border: solid 1.5px ; border-radius: 5px; border-radius: 5px; color:black; word-wrap: break-word; height: 10rem;font-size: large;cursor: pointer " class="tag_box p-3">
-                <div class="tag_title" style="font-style: italic; font-weight: ;">
+            <div style="border-color:rgb(88, 88, 88); border: solid 1.5px ; border-radius: 5px; border-radius: 5px; color:3A4D3A; word-wrap: break-word; height: 10rem;font-size: large;cursor: pointer " class="tag_box p-3">
+                <div class="tag_title" style="font-style: italic; font-weight: bold;" style="font-style: italic; font-weight: bold;">
                     #mysql
                 </div>
                 <div class="tag_body" style=" color: rgb(88, 88, 88);"> 
                     MySQL is a free, open-source Relational Database Management System
                 </div>
-                <div class="d-flex justify-content-end " style="color: rgb(88, 88, 88)"">
+                <div class="tag_questions d-flex justify-content-end " style="color: rgb(88, 88, 88)"">
                     1000 questions
                 </div>
             </div>
         </div>
 
         <div class="tag_col col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 p-3">
-            <div style="border-color:rgb(88, 88, 88); border: solid 1.5px ; border-radius: 5px; border-radius: 5px; color:black; word-wrap: break-word; height: 10rem;font-size: large;cursor: pointer " class="tag_box p-3">
-                <div class="tag_title">
+            <div style="border-color:rgb(88, 88, 88); border: solid 1.5px ; border-radius: 5px; border-radius: 5px; color:3A4D3A; word-wrap: break-word; height: 10rem;font-size: large;cursor: pointer " class="tag_box p-3">
+                <div class="tag_title" style="font-style: italic; font-weight: bold;">
                     #html
                 </div>
                 <div class="tag_body" style=" color: rgb(88, 88, 88);"> 
                     HTML  is the language for creating web pages and other information to be displayed in a web browser
                 </div>
-                <div class="d-flex justify-content-end " style="color: rgb(88, 88, 88)"">
+                <div class="tag_questions d-flex justify-content-end " style="color: rgb(88, 88, 88)"">
                     1000 questions
                 </div>
             </div>
         </div>
 
         <div class="tag_col col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 p-3">
-            <div style="border-color:rgb(88, 88, 88); border: solid 1.5px ; border-radius: 5px; border-radius: 5px; color:black; word-wrap: break-word; height: 10rem;font-size: large;cursor: pointer " class="tag_box p-3">
-                <div class="tag_title">
+            <div style="border-color:rgb(88, 88, 88); border: solid 1.5px ; border-radius: 5px; border-radius: 5px; color:3A4D3A; word-wrap: break-word; height: 10rem;font-size: large;cursor: pointer " class="tag_box p-3">
+                <div class="tag_title" style="font-style: italic; font-weight: bold;">
                     #c++
                 </div>
                 <div class="tag_body" style=" color: rgb(88, 88, 88);"> 
                     C++ is a general-purpose programming language
                 </div>
-                <div class="d-flex justify-content-end " style="color: rgb(88, 88, 88)"">
+                <div class="tag_questions d-flex justify-content-end " style="color: rgb(88, 88, 88)">
                     1000 questions
                 </div>
             </div>
-        </div> -->
-    </div>
+        </div>
+    </div> -->
 
     <!-- row for pages -->
     <div class="d-flex flex-row justify-content-center px-3">
         <a class="num_button py-2 px-3" style="background-color:3A4D3A;color: white;cursor: pointer;border-color:rgb(88, 88, 88); border: solid 1.5px ; border-radius: 5px; border-radius: 5px" href="{{ url_for('tag_page' , id=3)}}"> 1</a>
         <div class="p-1" ></div>
-        <div class="num_button py-2 px-3" style="cursor: pointer;border-color:rgb(88, 88, 88); border: solid 1.5px ; border-radius: 5px; border-radius: 5px"> 2</div>
+        <div class="num_button py-2 px-3" style="cursor: pointer;border-color:rgb(88, 88, 88);color:3A4D3A; border: solid 1.5px ; border-radius: 5px; border-radius: 5px"> 2</div>
         <div class="p-1" ></div>
-        <div class="num_button py-2 px-3" style="cursor: pointer;border-color:rgb(88, 88, 88); border: solid 1.5px ; border-radius: 5px; border-radius: 5px"> 3</div>
+        <div class="num_button py-2 px-3" style="cursor: pointer;border-color:rgb(88, 88, 88);color:3A4D3A; border: solid 1.5px ; border-radius: 5px; border-radius: 5px"> 3</div>
         <div class="p-1" ></div>
-        <div class="num_button py-2 px-3" style="cursor: pointer;border-color:rgb(88, 88, 88); border: solid 1.5px ; border-radius: 5px; border-radius: 5px"> 4</div>
+        <div class="num_button py-2 px-3" style="cursor: pointer;border-color:rgb(88, 88, 88);color:3A4D3A; border: solid 1.5px ; border-radius: 5px; border-radius: 5px"> 4</div>
         <div class="p-1" ></div>
-        <div class="num_button py-2 px-3" style="cursor: pointer;border-color:rgb(88, 88, 88); border: solid 1.5px ; border-radius: 5px; border-radius: 5px"> 5</div>
+        <div class="num_button py-2 px-3" style="cursor: pointer;border-color:rgb(88, 88, 88);color:3A4D3A; border: solid 1.5px ; border-radius: 5px; border-radius: 5px"> 5</div>
         <div class="py-2 px-1"> ........</div>
-        <div class="num_button py-2 px-3" style="cursor: pointer;border-color:rgb(88, 88, 88); border: solid 1.5px ; border-radius: 5px; border-radius: 5px"> 1000</div>
+        <div class="num_button py-2 px-3" style="cursor: pointer;border-color:rgb(88, 88, 88);color:3A4D3A; border: solid 1.5px ; border-radius: 5px; border-radius: 5px"> 1000</div>
       </div>
     <style>
         .num_button:hover{
-            color: white;
-            border-color: black !important;
-            background-color:lawngreen;
+            color:rgb(255, 243, 213) !important;
+            border-color:rgb(255, 243, 213) !important;
+            background-color:3A4D3A;
         }
         .tag_box:hover{
             transform: scale(1.05);
             transition: transform 0.25s ease-in-out;
-            background-color:  E7E4DF;
+            background-color:3A4D3A;
         }
         .tag_box:hover .tag_title{
-            color: red !important; 
+            color:rgb(255, 243, 213) !important;
+        }
+        .tag_box:hover .tag_body{
+            color:rgb(255, 243, 213) !important;
+        }
+        .tag_box:hover .tag_questions{
+            color:rgb(255, 243, 213)!important;
         }
     </style>
     
