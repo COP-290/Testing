@@ -27,9 +27,6 @@ def get_tags(id1):
         abort(404)
     return post
 
-a=(get_tags(1))
-for c in a:
-    print(c['tags'])
 
 
 app = Flask(__name__)

@@ -22,12 +22,17 @@
     <!-- filters button -->
     <div class="d-flex justify-content-center">
         <div class="col-4 px-3 py-2">
-            <select class="form-select" aria-label="Default select example">
-                <option selected>Choose a filter</option>
-                <option value="1">rer</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-            </select>
+            <form action="/action_page.php">
+                <label for="browser" class="form-label">Choose your browser from the list:</label>
+                <input class="form-control" list="tags" name="browser" id="browser">
+                <datalist id="browsers">
+                  <option value="Python">
+                  <option value="JavaScript">
+                  <option value="CSS">
+                  <option value="MySQL">
+                  <option value="C++">
+                </datalist>    
+              </form>
         </div>
     </div>    
     
@@ -48,9 +53,9 @@
         {% endfor %}
     </div>  -->
     <div class="row px-4">
-        <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 p-3">
-            <div style="border-color:rgb(88, 88, 88); border: solid 1.5px ; border-radius: 5px; color:black; word-wrap: break-word; height: 10rem;font-size: large;cursor: pointer " class="p-3">
-                python
+        <div class="tag_col col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 p-3">
+            <div style="border-color:rgb(88, 88, 88); border: solid 1.5px ; border-radius: 5px; color:black; word-wrap: break-word; height: 10rem;font-size: large;cursor: pointer " class="tag_title p-3">
+            python
                 <div style=" color: rgb(88, 88, 88);" > 
                     Python is a multi-paradigm, dynamically typed, multi-purpose programming language. 
                     ...
@@ -61,20 +66,20 @@
             </div>
         </div>
 
-        <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 p-3">
-            <div style="border-color:rgb(88, 88, 88); border: solid 1.5px ; border-radius: 5px; border-radius: 5px; color:black; word-wrap: break-word; height: 10rem;font-size: large;cursor: pointer " class="p-3">
+        <div class="tag_col col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 p-3">
+            <div style="border-color:rgb(88, 88, 88); border: solid 1.5px ; border-radius: 5px; border-radius: 5px; color:black; word-wrap: break-word; height: 10rem;font-size: large;cursor: pointer " class="tag_title p-3">
                 javascript
                 <div style=" color: rgb(88, 88, 88);"> 
                     For questions about programming in ECMAScript (JavaScript/JS) and its different dialects                
                 </div>
-                <div class="d-flex justify-content-end " style="color: rgb(88, 88, 88)"">
+                <div class="d-flex justify-content-end " style="color: rgb(88, 88, 88)">
                     1000 questions
                 </div>
             </div>
         </div>
 
-        <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 p-3">
-            <div style="border-color:rgb(88, 88, 88); border: solid 1.5px ; border-radius: 5px; border-radius: 5px; color:black; word-wrap: break-word; height: 10rem;font-size: large;cursor: pointer "  class="p-3">
+        <div class="tag_col col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 p-3">
+            <div style="border-color:rgb(88, 88, 88); border: solid 1.5px ; border-radius: 5px; border-radius: 5px; color:black; word-wrap: break-word; height: 10rem;font-size: large;cursor: pointer " class="tag_title p-3">
                 css
                 <div style=" color: rgb(88, 88, 88);"> 
                     CSS (Cascading Style Sheets) is  representation style sheet language                
@@ -85,8 +90,8 @@
             </div>
         </div>
 
-        <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 p-3">
-            <div style="border-color:rgb(88, 88, 88); border: solid 1.5px ; border-radius: 5px; border-radius: 5px; color:black; word-wrap: break-word; height: 10rem;font-size: large;cursor: pointer "  class="p-3">
+        <div class="tag_col col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 p-3">
+            <div style="border-color:rgb(88, 88, 88); border: solid 1.5px ; border-radius: 5px; border-radius: 5px; color:black; word-wrap: break-word; height: 10rem;font-size: large;cursor: pointer " class="tag_title p-3">
                 mysql
                 <div style=" color: rgb(88, 88, 88);"> 
                     MySQL is a free, open-source Relational Database Management System
@@ -97,8 +102,8 @@
             </div>
         </div>
 
-        <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 p-3">
-            <div style="border-color:rgb(88, 88, 88); border: solid 1.5px ; border-radius: 5px; border-radius: 5px; color:black; word-wrap: break-word; height: 10rem;font-size: large;cursor: pointer "  class="p-3">
+        <div class="tag_col col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 p-3">
+            <div style="border-color:rgb(88, 88, 88); border: solid 1.5px ; border-radius: 5px; border-radius: 5px; color:black; word-wrap: break-word; height: 10rem;font-size: large;cursor: pointer " class="tag_title p-3">
                 html
                 <div style=" color: rgb(88, 88, 88);"> 
                     HTML  is the language for creating web pages and other information to be displayed in a web browser
@@ -109,8 +114,8 @@
             </div>
         </div>
 
-        <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 p-3">
-            <div style="border-color:rgb(88, 88, 88); border: solid 1.5px ; border-radius: 5px; border-radius: 5px; color:black; word-wrap: break-word; height: 10rem;font-size: large;cursor: pointer "  class="p-3">
+        <div class="tag_col col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 p-3">
+            <div style="border-color:rgb(88, 88, 88); border: solid 1.5px ; border-radius: 5px; border-radius: 5px; color:black; word-wrap: break-word; height: 10rem;font-size: large;cursor: pointer " class="tag_title p-3">
                 c++
                 <div style=" color: rgb(88, 88, 88);"> 
                     C++ is a general-purpose programming language
@@ -139,7 +144,11 @@
     <style>
     .num_button:hover{
         color: white;
-        background-color: 7C8B7C;
+        background-color: B4D3B4;
+    }
+    .tag_col:hover .tag_title{
+        color: red;
+
     }
     </style>
     

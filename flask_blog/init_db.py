@@ -84,11 +84,12 @@ mydb = MySQLdb.connect(host='localhost',
     db='test')
 cursor = mydb.cursor()
 
-with open("/home/baadalvm/repos/tags.csv", 'r') as file:
+with open("/home/baadalvm/repos/questions.csv", 'r') as file:
   csvreader = list(csv.reader(file))
-  for row in csvreader[1:]:
-    print(row)
-    cursor.execute('INSERT INTO Tag (id, tags ) VALUES("%s", "%s")',row)
+  for row in csvreader[1:2]:
+    r = list(row)
+    print(r)
+    # cursor.execute('INSERT INTO Tag (id, tags ) VALUES("%s", "%s")',(int(r[0]),r[1]))
 #close the connection to the database.
 mydb.commit()
 cursor.close()
