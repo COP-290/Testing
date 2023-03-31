@@ -88,8 +88,7 @@ with open("/home/baadalvm/repos/questions.csv", 'r') as file:
   csvreader = list(csv.reader(file))
   for row in csvreader[1:2]:
     r = list(row)
-    print(r)
-    # cursor.execute('INSERT INTO Tag (id, tags ) VALUES("%s", "%s")',(int(r[0]),r[1]))
+    cursor.execute('INSERT INTO Question (ID,Owner_User_Id,Score,title,Body) VALUES("%s", "%s", "%s", "%s", "%s")',(int(r[0]),int(r[1]),int(row[4]),row[5],row[6]))
 #close the connection to the database.
 mydb.commit()
 cursor.close()
