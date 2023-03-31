@@ -1,7 +1,6 @@
-DROP TABLE IF EXISTS posts;
+DROP TABLE IF EXISTS Tags;
 
 CREATE TABLE Tags (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    tags varchar(255),
-    PRIMARY KEY (id)
+    id INTEGER  KEY,
+    tags varchar(255)
 )
