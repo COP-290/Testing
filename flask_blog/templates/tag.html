@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="index.css" />
 </head>
 
-<body style="background-color:rgb(255, 243, 213); font-family: stylesheet;">
+<body style="background-color:rgb(255, 248, 230); font-family: stylesheet;">
     <div class="p-1 d-flex justify-content-center" style ="font-size:xxx-large; color:3A4D3A;">
         -: Tags :-
     </div>
@@ -20,21 +20,20 @@
     </div>
 
     <!-- filters button -->
-    <div class="d-flex justify-content-center">
-        <div class="col-4 px-3 py-2">
-            <form action="/action_page.php" style="border:solid 1px; border-radius:7px;">
-                <input style="background-color: rgb(255, 249, 242)"class="form-control" list="tags" name="tag" id="tag">
-                <datalist id="tags">
-                  <option value="Python">
-                  <option value="JavaScript">
-                  <option value="MySQL">
-                  <option value="">
-                  <option value="Safari">
-                </datalist>    
-              </form>
-        </div>
-    </div>    
-    
+    <div class="col-3 d-flex justify-content-center" style="font-size: larger;">
+        <div class="px-3 py-2">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" style="border-radius: 2.75px;border-color:3A4D3A ;background-color: 3A4D3A;color: E7E4DF;font-size: large;"for="inputGroupSelect01">Filters</label>
+            </div>
+            <select class="custom-select" style="border-radius: 2.75px;color: 3A4D3A" id="inputGroupSelect01">
+              <option selected>choose the filter...</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+        </div>    
+
     <div class="row px-4">
         {% for post in b %}
         <div class="tag_col col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 p-3">
