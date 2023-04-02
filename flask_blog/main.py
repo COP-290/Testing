@@ -3,7 +3,7 @@ from werkzeug.exceptions import abort
 from flask_paginate import Pagination, get_page_args
 import MySQLdb
 from tag import get_tags, mydb
-from question import get_id_question,get_question,get_tag
+from question import get_id_question,question_from_id,questionTag_from_id
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your secret key'
@@ -23,7 +23,7 @@ def index_question():
     a=get_id_question('flex') # list of id for particular tag
     l=[]
     for i in a: 
-        b = get_question(i) # all question corresponding to a particular id
+        b = question_from_id(i) # all question corresponding to a particular id
         c = get_tag(i)
         if b!=[]:
             b.append(c)
@@ -37,8 +37,8 @@ def display_question(tag):
     a=get_id_question(tag) # list of id for particular tag
     l=[]
     for i in a: 
-        b = get_question(i) # all question corresponding to a particular id
-        c = get_tag(i)
+        b = question_from_id(i) # all question corresponding to a particular id
+        c = questionTag_from_id(i)
         if b!=[]:
             b.append(c)
             l.append(b)
