@@ -12,8 +12,9 @@ cursor = mydb.cursor()
 # cursor = conn.cursor()
 #sql = 'CREATE DATABASE test1'
 # sql ='''DROP TABLE IF EXISTS `test1`; CREATE TABLE test1 (policyID int, statecode varchar(255), county varchar(255))'''
-sql = 'ALTER TABLE Question MODIFY COLUMN id INT AUTO_INCREMENT'
+# sql = 'ALTER TABLE Question MODIFY COLUMN id INT AUTO_INCREMENT'
 # sql = 'ALTER TABLE Question MODIFY COLUMN id INT PRIMARY KEY'
+sql = 'ALTER TABLE Question MODIFY COLUMN Creation_Date DATETIME DEFAULT NOW()'
 cursor.execute(sql)
 
 # with open('C:/Users/Desktop/Code/python/sample.csv') as csvfile:

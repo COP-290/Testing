@@ -39,23 +39,15 @@ def get_tag(id): # list of tag from question id
     return tag_list
 
 # print(get_tag(80))
+# @app.route('/')
+# def index():
+#     return render_template('question.html')
+    
+# @app.route('/<string:tag>/question',methods=['GET'])
 @app.route('/')
-def index():
-    a=get_id_question('flex') # list of id for particular tag
-    l=[]
-    for i in a: 
-        b = get_question(i) # all question corresponding to a particular id
-        c = get_tag(i)
-        if b!=[]:
-            b.append(c)
-            l.append(b)
-    n=len(l)
-    return render_template('question.html',l=l,n=n)
-# print(index())
-# print('hi')
-@app.route('/<string:tag>/question',methods=['GET'])
-def display_question(tag): 
-    a=get_id_question(tag) # list of id for particular tag
+# def display_question(tag): 
+def display_question():
+    a=get_id_question('python') # list of id for particular tag
     l=[]
     for i in a: 
         b = get_question(i) # all question corresponding to a particular id
@@ -68,24 +60,24 @@ def display_question(tag):
 if __name__=="__main__":
     app.run(host='0.0.0.0',debug=True,port=8000)
 
-# @app.route('/create', methods=('GET', 'POST'))
-# def create():
-#     if request.method == 'POST':
-#         title = request.form['title']
-#         content = request.form['Body']
-#         tag = request.form['tags']
+@app.route('/create', methods=('GET', 'POST'))
+def create():
+    if request.method == 'POST':
+        title = request.form['title']
+        content = request.form['Body']
+        tag = request.form['tags']
 
-#         if not title:
-#             flash('Title is required!')
-#         elif not content:
-#             flash('Body is required!')
-#         else:
-#             # conn = get_db_connection()
-#             cursor.execute('INSERT INTO posts (title, content) VALUES (?, ?)',
-#                          (title, content))
-#             cursor.commit()
-#             cursor.close()
-#             return redirect(url_for('index'))
+        if not title:
+            flash('Title is required!')
+        elif not content:
+            flash('Body is required!')
+        else:
+            # conn = get_db_connection()
+            cursor.execute('INSERT INTO posts (title, content) VALUES (?, ?)',
+                         (title, content))
+            cursor.commit()
+            cursor.close()
+            return redirect(url_for('index'))
         
 
 #     return render_template('create.html')
