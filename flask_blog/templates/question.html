@@ -8,6 +8,7 @@
 </head>
 
 <body style="background-color:E7E4DF; font-family: stylesheet;">
+
     <nav class="navbar navbar-expand-lg navbar-light " style="border-bottom:1px solid;border-color:black;">
         <div class="container-fluid" >
           <a class="navbar-brand px-5" style="font-size: 40px;color: 3A4D3A !important;" href="#">askQ</a>
@@ -16,35 +17,26 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
               <li class="nav-item">
                 <a class="nav-link active px-5"style="font-size:20px;color: 3A4D3A !important;" aria-current="page" href="/">About</a>
               </li>
+
               <li class="nav-item">
                 <a class="nav-link px-5"style="font-size:20px;color: 3A4D3A !important;" href="/tag">Tag</a>
               </li>
+
               <li class="nav-item">
                 <a class="nav-link px-5" style="font-size:20px;color: 3A4D3A !important;"href="/question">Question</a>
               </li>
-              <!-- <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Dropdown
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-              </li> -->
+
             </ul> 
             
             <form class="d-flex pt-3">
               <input class="form-control me-2" type="search" placeholder="Search..." aria-label="Search">
               <button type="button" style="background-color:3A4D3A;color:E7E4DF;border-color:3A4D3A ;border-radius: 4px;"class="btn btn-success">Search</button>
             </form>
+          
             <div class="col-1 user_pp d-flex justify-content-end " style="font-size: larger;color: rgb(88, 88, 88);color: 3A4D3A !important;">
                 <div class="d-flex justify-content-center" >
                   <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
@@ -52,15 +44,17 @@
                       <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
                   </svg>
                 </div>
-              </div>
+            </div>
           </div>
         </div>
     </nav>
-
+<!-- checked -->
   <div class="row">
+
     <div class=" p-1 d-flex justify-content-center" style ="font-size:xxx-large; color:3A4D3A;">
         -: Questions :-
     </div>
+
     <div class ="col-12 px-4 d-flex justify-content-end">
       <button type="button" class="btn btn-success" style="color:E7E4DF;border-color: 3A4D3A ;font-size: large; background-color: 3A4D3A;">
         <a href="/ask/question">Ask question</a>
@@ -68,7 +62,7 @@
     </div>
   
     <div class="row col-12 px-3 d-flex justify-content-start">
-      <div class="dropdown col-4 px-4 ">
+      <div class="dropdown col-12 px-4 ">
         <button  style="background-color: 3A4D3A;color:E7E4DF;border-color: 3A4D3A;border-radius: 3px;"class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
           Sorting
         </button>
@@ -80,8 +74,8 @@
       </div>
     </div>
 
-    <div class="row d-flex justify-content-end">
-      <div class="col-xl-4 col-lg-4 col-md-12 px-3 d-flex justify-content-start" style="font-size: larger;">
+    <div class="row d-flex justify-content-start">
+      <div class="col-12 d-flex justify-content-start" style="font-size: larger;">
         <div class="px-3 py-2">
           <div class="input-group mb-3">
             <div class="input-group-prepend">
@@ -94,45 +88,57 @@
               <option value="3">fitler-3</option>
             </select>
           </div> 
-        </div>   
+        </div> 
+      </div>  
     </div>
+    
     {% for i in range(0,n) %}
-      <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 d-flex justify-content-center py-2 px-4">
-        <div style="border-color:rgb(88, 88, 88); border: solid 1.5px ; border-radius: 5px; color:3A4D3A; word-wrap: break-word; height:fit-content;font-size: large;cursor: pointer " class="question_box p-3">
-          <div class="container">
-            <div class="row mx-lg-n5">
-              <div class="vav col-xl-2 col-lg-2 col-md-2 col-sm-3 col-3 d-flex justify-content-center" style="border-radius: 4px;">0 votes</div>
-              <div class="vav col-xl-2 col-lg-2 col-md-2 col-sm-3 col-3 d-flex justify-content-center" style="border-radius: 4px;">0 answer</div>
-              <div class="vav col-xl-2 col-lg-2 col-md-2 col-sm-3 col-3 d-flex justify-content-center" style="border-radius: 4px;">0 views</div>
+      <div class="col-12 d-flex justify-content-end py-2 px-4">
+        <div style="border-color:rgb(88, 88, 88); border: solid 1.5px ; border-radius: 5px; color:3A4D3A; word-wrap: break-word; height:fix-content;width: 70%;font-size: large;cursor: pointer " class="question_box p-3">
+            <div class="container">
+              <div class="row mx-lg-n5">
+                <div class="vav col-xl-2 col-lg-2 col-md-2 col-sm-3 col-3 d-flex justify-content-center" style="border-radius: 4px;">0 votes</div>
+                <div class="vav col-xl-2 col-lg-2 col-md-2 col-sm-3 col-3 d-flex justify-content-center" style="border-radius: 4px;">0 answer</div>
+                <div class="vav col-xl-2 col-lg-2 col-md-2 col-sm-3 col-3 d-flex justify-content-center" style="border-radius: 4px;">0 views</div>
+              </div>
             </div>
-          </div>
             <div class="question" style="font-style: italic;font-size: larger; font-weight: bold;">
                 <!-- Mapping typescripts dynamic types into Java Objects subclasses -->
+                {% autoescape off %}
                 {{l[i][0][5]}}
+                {% endautoescape %}
             </div>
             <div class="answer" style=" font-size: larger;color: rgb(88, 88, 88);" > 
-             {{l[i][0][4][0:100]}}
+              {% autoescape off %}
+              {{l[i][0][4][1:200]}}
+              {% endautoescape %}
+    
               <!-- I have a Typescript model being sent as JSON request to my back end server. I can't change the model into a more engineered format, so I have to use what the client is going to send me. The ...  -->
             </div>
-            <div class="row py-2">
-            {% for j in l[i][1] %}
-              <div class="col-xl-1 col-lg-1 col-md-1 col-sm-2">
-                <button type="button" class="tag_btn btn btn-secondary btn-sm" style="color:E7E4DF;border-color: E7E4DF ;font-size: large; background-color: 3A4D3A;">{{j}}</button>
+          
+            <div class="row py-2 d-flex flex-row ">
+              <div class="d-flex flex-row flex-wrap justify-content-start px-3" style="row-gap: 15px;">
+                {% for j in l[i][1] %}
+                <div class="  justify-content-start px-3">
+                  <a class="num_button py-2 my-5 px-3" style="background-color:3A4D3A;color: white;cursor: pointer;border-color:rgb(88, 88, 88); border-color:3A4D3A  ; border-radius: 5px; border-radius: 5px">
+                    {{j}}
+                  </a>
+                </div>
+                {% endfor %}
               </div>
-            {% endfor %}
-              <div class="col-xl-9 col-lg-9 col-md-9 col-sm-6 user_pp d-flex justify-content-end " style="font-size: larger;color: rgb(88, 88, 88)">
+            </div>
+
+            <div class="col-12 user_pp d-flex justify-content-end " style="font-size: larger;color: rgb(88, 88, 88)">
                 <div class="d-flex justify-content-center">
                   <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
                       <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
                       <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
                   </svg>
                 </div>
-              </div>
             </div>
+
         </div>  
-      </div>
-    </div>
-    </div>  
+      </div>  
     {% endfor %}
   </div>
 
@@ -154,7 +160,7 @@
     .question_box:hover .vav{
         color:rgb(255, 243, 213)!important;
     }
-    .question_box:hover .tag_btn{
+    .question_box:hover .num_button{
       color:3A4D3A !important;
       background-color:rgb(255, 243, 213)!important;
       border-color: 3A4D3A!important;
@@ -165,11 +171,6 @@
       color:3A4D3A !important;
       background-color:rgb(255, 243, 213)!important;
     }
-    .num_button:hover{
-            color:rgb(255, 243, 213) !important;
-            border-color:rgb(255, 243, 213) !important;
-            background-color:3A4D3A;
-        }
   </style>
 
 </body>

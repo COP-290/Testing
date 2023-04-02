@@ -1,7 +1,7 @@
 import MySQLdb
 
 mydb = MySQLdb.connect(
-    host='localhost',
+
     user='root',
     passwd='root',
     db='test')

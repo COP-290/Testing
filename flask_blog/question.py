@@ -8,9 +8,9 @@ mydb = MySQLdb.connect(host='localhost',
     user='root',
     passwd='root',
     db='test')
-cursor = mydb.cursor()
 
 def get_id_question(tag): # output list of id from a given tag
+    cursor = mydb.cursor()
     ans=[]
     s=tag
     l=cursor.execute('SELECT * FROM Tag')
@@ -25,6 +25,7 @@ def get_id_question(tag): # output list of id from a given tag
     return tag_list
 
 def question_from_id(id): # output list of all questions from a given id
+    cursor = mydb.cursor()
     l=cursor.execute('SELECT * FROM Question where id = ' + str(id))
     l=cursor.fetchall()
     M = []
@@ -35,6 +36,7 @@ def question_from_id(id): # output list of all questions from a given id
 # print(question_from_id("'flex'"))
 
 def questionTag_from_id(id): # list of tag from question id
+    cursor = mydb.cursor()
     l=cursor.execute('SELECT tags FROM Tag where id = ' + str(id))
     l=cursor.fetchall()
     tag_list=[]
@@ -85,12 +87,9 @@ def create():
         title = request.form['title']
         content = request.form['content']
         tag = request.form['tag']
-        if not title:
-            flash('Title is required!')
-        elif not content:
-            flash('Body is required!')
-        elif not tag:
-            flash('Tag is required')
+        if not title: flash('Title is required!')
+        elif not content: flash('Body is required!')
+        elif not tag: flash('Tag is required')
         else:
             # conn = get_db_connection()
             # cursor.execute('INSERT INTO posts (title, content) VALUES ("%s", "%s")',(title, content))
