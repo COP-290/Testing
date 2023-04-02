@@ -12,7 +12,7 @@ jobs:
         with:
           packages: |
             coverage
-            MySQLdb
+            flask-mysqldb
 
       - name: Setup Database
         run: |
