@@ -12,6 +12,7 @@ jobs:
         with:
           packages: |
             coverage
+            MySQLdb
 
       - name: Setup Database
         run: |
