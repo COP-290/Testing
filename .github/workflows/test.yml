@@ -1,0 +1,13 @@
+name: SQL
+run-name: SQL Test
+on: [push]
+jobs:
+  SQL-Test:
+    runs-on: ubuntu-latest
+    steps:
+
+
+      - run: |
+          sudo /etc/init.d/mysql start
+          mysql -e 'CREATE DATABASE test;' -uroot -proot
+          mysql -e 'SHOW DATABASES;' -uroot -proot      
