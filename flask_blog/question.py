@@ -11,12 +11,15 @@ cursor = mydb.cursor()
 
 def get_id_question(tag): # output list of id from a given tag
     ans=[]
-    s="'"+tag+"'"
+    s=tag
     l=cursor.execute('SELECT * FROM Tag')
     l=cursor.fetchall()
     tag_list=[]
     for k in range(0,len(l)):
-        if s==l[k][0]:
+        a=l[k][0]
+        b=len(a)
+        c=a[1:b-1]
+        if s==c:
          tag_list.append(l[k][1])
     return tag_list
 
@@ -66,27 +69,24 @@ def display_question(tag):
     n=len(l)
     return render_template('question.html',l=l,n=n)
 
+@app.route('/ask/question', methods=('GET', 'POST'))
+def create():
+    if request.method == 'POST':
+        title = request.form['title']
+        content = request.form['content']
+        tag = request.form['tag']
+        if not title:
+            flash('Title is required!')
+        elif not content:
+            flash('Body is required!')
+        elif not tag:
+            flash('Tag is required')
+        else:
+            # conn = get_db_connection()
+            # cursor.execute('INSERT INTO posts (title, content) VALUES ("%s", "%s")',(title, content))
+            # cursor.commit()
+            return redirect(url_for('index'))
+    return render_template('ask_question.html')
+
 if __name__=="__main__":
     app.run(host='0.0.0.0',debug=True,port=8000)
-
-# @app.route('/create', methods=('GET', 'POST'))
-# def create():
-#     if request.method == 'POST':
-#         title = request.form['title']
-#         content = request.form['Body']
-#         tag = request.form['tags']
-
-#         if not title:
-#             flash('Title is required!')
-#         elif not content:
-#             flash('Body is required!')
-#         else:
-#             # conn = get_db_connection()
-#             cursor.execute('INSERT INTO posts (title, content) VALUES (?, ?)',
-#                          (title, content))
-#             cursor.commit()
-#             cursor.close()
-#             return redirect(url_for('index'))
-        
-
-#     return render_template('create.html')
