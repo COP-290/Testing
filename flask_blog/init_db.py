@@ -77,19 +77,39 @@
 
 import csv
 import MySQLdb
-
+import datetime
 mydb = MySQLdb.connect(host='localhost',
     user='root',
     passwd='kaipoche',
     db='test')
 cursor = mydb.cursor()
 
-with open("/home/baadalvm/repos/questions.csv", 'r') as file:
+with open("/home/baadalvm/repos/answers.csv", 'r') as file:
   csvreader = list(csv.reader(file))
-  for row in csvreader[1:2]:
-    r = list(row)
-    cursor.execute('INSERT INTO Question (ID,Owner_User_Id,Score,title,Body) VALUES("%s", "%s", "%s", "%s", "%s")',(int(r[0]),int(r[1]),int(row[4]),row[5],row[6]))
+  for row in csvreader[1:-1]:
+    try:
+      r = list(row)
+      # a = r[2]
+      # b = a[:10]
+      # c = a[11:-1]
+      # # print(a,b,c)
+      # d = str(b) + " , " + str(c)
+      # # print(d)
+      # r1 = int(row[0])
+      # r2 = int(row[1])
+      # r3 = int(row[4])
+      # r5 = row[5]
+      # r6 = row[6]
+      # print((int(a[0:4]),int(a[5:7]),int(a[8:10]),int(a[11:13]),int(a[14:16]),int(a[17:-1])))
+      # timestamp = datetime.datetime(int(a[0:4]),int(a[8:10]),int(a[5:7]),int(a[11:13]),int(a[14:16]),int(a[17:-1]))
+      # t = timestamp.strftime('%Y-%m-%d %H:%M:%S')
+      # print(t)
+      # print(r1,r2,r3,r5,r6)
+      cursor.execute('INSERT INTO Answer (ID,Owner_User_Id,Parent_Id,Score,Body) VALUES("%s", "%s", "%s", "%s", "%s")',(int(r[0]),int(r[1]),int(r[3]),int(r[4]),r[5]))
+    except:
+      continue
 #close the connection to the database.
+
 mydb.commit()
 cursor.close()
 print ("Done")
