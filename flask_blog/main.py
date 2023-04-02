@@ -3,6 +3,7 @@ from werkzeug.exceptions import abort
 from flask_paginate import Pagination, get_page_args
 import MySQLdb
 from tag import get_tags, mydb
+from question import get_id_question,get_question,get_tag
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your secret key'
@@ -16,6 +17,33 @@ def tag_page():
     pagination = Pagination(page=page, per_page=6, total=total,css_framework='bootstrap5')
     return render_template('tag.html',tags=pagination_users,page=page,per_page=9,pagination=pagination)
 
+# print(get_tag(80))
+@app.route('/question',methods=['GET'])
+def index_question():
+    a=get_id_question('flex') # list of id for particular tag
+    l=[]
+    for i in a: 
+        b = get_question(i) # all question corresponding to a particular id
+        c = get_tag(i)
+        if b!=[]:
+            b.append(c)
+            l.append(b)
+    n=len(l)
+    return render_template('question.html',l=l,n=n)
+# print(index())
+# print('hi')
+@app.route('/<string:tag>/question',methods=['GET'])
+def display_question(tag): 
+    a=get_id_question(tag) # list of id for particular tag
+    l=[]
+    for i in a: 
+        b = get_question(i) # all question corresponding to a particular id
+        c = get_tag(i)
+        if b!=[]:
+            b.append(c)
+            l.append(b)
+    n=len(l)
+    return render_template('question.html',l=l,n=n)
 
 @app.route('/')
 def index():

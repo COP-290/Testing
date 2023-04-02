@@ -96,7 +96,7 @@
           </div> 
         </div>   
     </div>
-    
+    {% for i in range(0,n) %}
       <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 d-flex justify-content-center py-2 px-4">
         <div style="border-color:rgb(88, 88, 88); border: solid 1.5px ; border-radius: 5px; color:3A4D3A; word-wrap: break-word; height:fit-content;font-size: large;cursor: pointer " class="question_box p-3">
           <div class="container">
@@ -107,19 +107,19 @@
             </div>
           </div>
             <div class="question" style="font-style: italic;font-size: larger; font-weight: bold;">
-                Mapping typescripts dynamic types into Java Objects subclasses
-      
+                <!-- Mapping typescripts dynamic types into Java Objects subclasses -->
+                {{l[i][0][5]}}
             </div>
             <div class="answer" style=" font-size: larger;color: rgb(88, 88, 88);" > 
-      
-              I have a Typescript model being sent as JSON request to my back end server. I can't change the model into a more engineered format, so I have to use what the client is going to send me. The ... 
+             {{l[i][0][4][0:100]}}
+              <!-- I have a Typescript model being sent as JSON request to my back end server. I can't change the model into a more engineered format, so I have to use what the client is going to send me. The ...  -->
             </div>
             <div class="row py-2">
-            
+            {% for j in l[i][1] %}
               <div class="col-xl-1 col-lg-1 col-md-1 col-sm-2">
-                <button type="button" class="tag_btn btn btn-secondary btn-sm" style="color:E7E4DF;border-color: E7E4DF ;font-size: large; background-color: 3A4D3A;">python</button>
+                <button type="button" class="tag_btn btn btn-secondary btn-sm" style="color:E7E4DF;border-color: E7E4DF ;font-size: large; background-color: 3A4D3A;">{{j}}</button>
               </div>
-
+            {% endfor %}
               <div class="col-xl-9 col-lg-9 col-md-9 col-sm-6 user_pp d-flex justify-content-end " style="font-size: larger;color: rgb(88, 88, 88)">
                 <div class="d-flex justify-content-center">
                   <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
@@ -132,9 +132,8 @@
         </div>  
       </div>
     </div>
-
-
     </div>  
+    {% endfor %}
   </div>
 
   <style>
@@ -172,8 +171,5 @@
             background-color:3A4D3A;
         }
   </style>
-  {% for i in [1,10]%}
-   {{i}}
-   {% endfor %}
 
 </body>

@@ -63,7 +63,8 @@ def display_question(tag):
         if b!=[]:
             b.append(c)
             l.append(b)
-    return render_template('question.html',l=l)
+    n=len(l)
+    return render_template('question.html',l=l,n=n)
 
 if __name__=="__main__":
     app.run(host='0.0.0.0',debug=True,port=8000)
