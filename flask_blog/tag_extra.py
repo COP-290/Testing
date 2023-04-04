@@ -24,9 +24,12 @@ def tag_filter():
     pagination_users=get_tags(offset=0,per_page=len(a)%10)
     pagination = Pagination(page=1, per_page=total%10, total=total,css_framework='bootstrap4')
     return render_template('tag.html',tags=a,page=1,per_page=total%10,pagination=pageination)
-""
-<form action="{{ url_for('delete', id=post['id']) }}" method="POST">
-    <input type="submit" value="Delete Post"
-            class="btn btn-danger btn-sm"
-            onclick="return confirm('Are you sure you want to delete this post?')">
-</form>
+
+@app.route('/score/question',methods=['GET'])
+def showQuestion_byscore():
+    conn=requestConnection()
+    cursor=requestCursor(conn)
+    l=cursor.execute('SELECT * FROM Question ORDER BY Score DESC')
+    l=cursor.fetchall()
+    n=len(l)
+    return render_template('question.html',l=l,n=n)

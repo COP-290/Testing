@@ -1,14 +1,13 @@
-
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sansita&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../static/new_question.css" />
+    <link rel="stylesheet" href="index.css" />
 </head>
 
-<body style="background-color:E7E4DF; ">
+<body style="background-color:E7E4DF; font-family: stylesheet;">
     <nav class="navbar navbar-expand-lg navbar-light " style="border-bottom:1px solid;border-color:black;">
         <div class="container-fluid" >
           <a class="navbar-brand px-5" style="font-size: 40px;color: 3A4D3A !important;" href="#">askQ</a>
@@ -48,40 +47,5 @@
           </div>
         </div>
     </nav>
-
-    <div class="row">
-      <div class=" p-1 d-flex justify-content-center" style ="font-size:xxx-large; color:3A4D3A;">
-          -: Ask any Questions :-
-      </div>
-    </div>
-
-    <form class="row mx-5 my-4" method="POST" action="/ask/question">
-
-      <div class="input-group mb-3">
-        <span class="input-group-text" id="title">Title</span>
-        <input id="title" name="title" type="text" class="form-control q_title" placeholder="Enter the title.." aria-label="Title" aria-describedby="basic-addon1" required>
-      </div>
-
-      <div class="input-group">
-        <span class="input-group-text">Body</span>
-        <textarea name="content" class="form-control q_body" aria-label="Body" placeholder="Write the question body.."></textarea>
-      </div>
-
-      <div class="input-group mt-3">
-        <span class="input-group-text" id="basic-addon1">Tag</span>
-        <input name="tag" type="text" class="form-control q_tag" placeholder="Enter tags.." aria-label="Tags" aria-describedby="basic-addon1">
-      </div>
-
-      <div class="d-flex justify-content-center">
-        <div class="col-3 d-flex justify-content-center column-gap-1">
-          <button type="submit" class="btn btn-outline-primary">Submit</button>
-          <button type="button" class="btn btn-outline-danger">Cancel</button>
-        </div>
-      </div>
-
-    </form>
-
-    
-      
 
 </body>

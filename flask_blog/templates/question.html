@@ -67,9 +67,9 @@
           Sorting
         </button>
         <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#">Newest</a></li>
+          <li><a class="dropdown-item" href="/time/question">Newest</a></li>
           <li><a class="dropdown-item" href="#">Active</a></li>
-          <li><a class="dropdown-item" href="#">Score</a></li>
+          <li><a class="dropdown-item" href="/score/question">Score</a></li>
         </ul>
       </div>
     </div>
@@ -105,13 +105,13 @@
             <div class="question" style="font-style: italic;font-size: larger; font-weight: bold;">
                 <!-- Mapping typescripts dynamic types into Java Objects subclasses -->
                 {% autoescape off %}
-                {{l[i][0][5]}}
-                {% endautoescape %}
+              {{l[i][0][4]}}
+              {% endautoescape %}
             </div>
             <div class="answer" style=" font-size: larger;color: rgb(88, 88, 88);" > 
               {% autoescape off %}
-              {{l[i][0][4][1:200]}}
-              {% endautoescape %}
+                {{l[i][0][5]}}
+                {% endautoescape %}
     
               <!-- I have a Typescript model being sent as JSON request to my back end server. I can't change the model into a more engineered format, so I have to use what the client is going to send me. The ...  -->
             </div>
