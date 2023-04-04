@@ -3,7 +3,7 @@ import unittest
 from flask_blog.tag import get_tags
 print(get_tags())
 
-class TestCircle(unittest.TestCase):
-    def test_circle_instance_of_shape(self):
+class TestTags(unittest.TestCase):
+    def test_tags(self):
         x = get_tags()
-        self.assertIsInstance(["'flex'", "'actionscript-3'", "'air'", "'svn'", "'tortoisesvn'"],list)
+        self.assertEqual(([(5, 'Java'), (4, 'Python'), (3, 'C++'), (2, 'MySQL'), (1, 'JavaScript')], 5),x)
