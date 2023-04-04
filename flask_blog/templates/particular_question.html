@@ -4,7 +4,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sansita&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="../static/particular_question.css" />
 </head>
 
 <body style="background-color:E7E4DF; font-family: stylesheet;">
@@ -25,20 +25,6 @@
               <li class="nav-item">
                 <a class="nav-link px-5" style="font-size:20px;color: 3A4D3A !important;"href="#">Question</a>
               </li>
-              <!-- <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Dropdown
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-              </li> -->
             </ul> 
             
             <form class="d-flex pt-3">
@@ -71,22 +57,40 @@
         </div>
 
         <div class="row px-5">
-            <div style="border-color:rgb(88, 88, 88); border: solid 1.5px ; border-radius: 5px; color:3A4D3A; word-wrap: break-word; height:fit-content;font-size: large;cursor: pointer " class="question_box p-3">
+            <div style="border-color:rgb(88, 88, 88); border: solid 1.5px ; border-radius: 5px; color:3A4D3A; word-wrap: break-word; height:fit-content;font-size: large;cursor: pointer " class="question_box p-2 d-flex flex-row">
+                <div class="col-2 px-2">
+                  <div class="like">
+                    like
+                  </div>
+                  <div class="like">
+                    1
+                  </div>
+                  <div class="like">
+                    disike
+                  </div>
+                </div>
+              
                 <div class="col-10 p-1 d-flex justify-content-end" style ="font-size:x-large; color:3A4D3A;cursor: pointer;">
                     I have a Typescript model being sent as JSON request to my back end server. I can't change the model into a more engineered format, so I have to use what the client is going to send me. The ... 
                 </div>
             </div>
         </div>
 
-        <div class="row px-5 py-3">
-            <div class="col-xl-1 col-lg-1 col-md-1 col-sm-2">
-                <button type="button" class="tag_btn btn btn-secondary btn-sm" style="color:E7E4DF;border-color: E7E4DF ;font-size: large; background-color: 3A4D3A;">{{j}}</button>
+        <div class="row px-5 py-3 justify-content-between d-flex justify-content-center">
+            <div class=" col-xl-8 col-lg-8 col-md-8 col-sm-8 col-12 d-flex flex-row flex-wrap" >
+                <button type="button" class="tag_btn btn btn-secondary btn-sm" style="color:E7E4DF;border-color: E7E4DF ;font-size: large; background-color: 3A4D3A;">javascript</button>
+                <button type="button" class="tag_btn btn btn-secondary btn-sm" style="color:E7E4DF;border-color: E7E4DF ;font-size: large; background-color: 3A4D3A;">javascript</button>
+                <button type="button" class="tag_btn btn btn-secondary btn-sm" style="color:E7E4DF;border-color: E7E4DF ;font-size: large; background-color: 3A4D3A;">javascript</button>
+                <button type="button" class="tag_btn btn btn-secondary btn-sm" style="color:E7E4DF;border-color: E7E4DF ;font-size: large; background-color: 3A4D3A;">javascript</button>
+                <button type="button" class="tag_btn btn btn-secondary btn-sm" style="color:E7E4DF;border-color: E7E4DF ;font-size: large; background-color: 3A4D3A;">javascript</button>
+                <button type="button" class="tag_btn btn btn-secondary btn-sm" style="color:E7E4DF;border-color: E7E4DF ;font-size: large; background-color: 3A4D3A;">javascript</button>
+                <button type="button" class="tag_btn btn btn-secondary btn-sm" style="color:E7E4DF;border-color: E7E4DF ;font-size: large; background-color: 3A4D3A;">javascript</button>
+                <button type="button" class="tag_btn btn btn-secondary btn-sm" style="color:E7E4DF;border-color: E7E4DF ;font-size: large; background-color: 3A4D3A;">javascript</button>
+                <button type="button" class="tag_btn btn btn-secondary btn-sm" style="color:E7E4DF;border-color: E7E4DF ;font-size: large; background-color: 3A4D3A;">javascript</button>
             </div>
-            <div class="col-xl-1 col-lg-1 col-md-1 col-sm-2">
-                <button type="button" class="tag_btn btn btn-secondary btn-sm" style="color:E7E4DF;border-color: E7E4DF ;font-size: large; background-color: 3A4D3A;">{{j}}</button>
-            </div>
-            <div  class="col-xl-10 col-lg-10 col-md-10 col-sm-12 question_box"style="border-color:rgb(88, 88, 88); border: solid 1.5px ; border-radius: 5px; color:3A4D3A; word-wrap: break-word; height:fit-content;font-size: large;cursor: pointer;width:min-content; ">
-                <div class="row px-2">
+
+            <div  class="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-12 mt-3 justify-content-sm-center post_data_box mb-3"style="border-color:rgb(88, 88, 88); border: solid 1.5px ; border-radius: 5px; color:3A4D3A; word-wrap: break-word; height:fit-content;font-size: large;cursor: pointer;width:min-content; ">
+                <div class="row px-2 d-flex">
                     <div class="">
                         Posted by :- 
                     </div>
@@ -108,7 +112,91 @@
                 </div>
             </div>
         </div>
+
+        <hr style="border: solid 0.75px !important" />
+        
+        <div class="row">
+          <div class="col-6 no_answer d-flex justify-content-end">
+            1 Answers
+          </div>
+          <div class="col-6 px-3 d-flex justify-content-start">
+            <div class="dropdown col-4 px-4 ">
+              <button  style="background-color: 3A4D3A;color:E7E4DF;border-color: 3A4D3A;border-radius: 3px;"class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Sorting
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Newest</a></li>
+                <li><a class="dropdown-item" href="#">Active</a></li>
+                <li><a class="dropdown-item" href="#">Score</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="row px-5 mt-3">
+            <div style="border-color:rgb(88, 88, 88); border: solid 1.5px ; border-radius: 5px; color:3A4D3A; word-wrap: break-word; height:fit-content;font-size: large;cursor: pointer " class="question_box p-2 d-flex flex-row">
+                <div class="col-2 px-2">
+                  <div class="like">
+                    like
+                  </div>
+                  <div class="like">
+                    1
+                  </div>
+                  <div class="like">
+                    disike
+                  </div>
+                </div>
+              
+                <div class="col-10 p-1 d-flex justify-content-end" style ="font-size:x-large; color:3A4D3A;cursor: pointer;">
+                    I have a Typescript model being sent as JSON request to my back end server. I can't change the model into a more engineered format, so I have to use what the client is going to send me. The ... 
+                </div>
+            </div>
+        </div>
+          <div  class="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-12 mt-3 justify-content-sm-center post_data_box mb-3"style="border-color:rgb(88, 88, 88); border: solid 1.5px ; border-radius: 5px; color:3A4D3A; word-wrap: break-word; height:fit-content;font-size: large;cursor: pointer;width:min-content; ">
+            <div class="row px-2 d-flex">
+                <div class="">
+                    Posted by :- 
+                </div>
+                <div class="user_pp" style="font-size: larger;color: rgb(88, 88, 88);position: relative;right:0px;">
+                    <div class="d-flex justify-content-start">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                        </svg>
+                      </div>
+                </div>
+            <div class="row px-2 d-flex flex-column">
+                <div class="">
+                    Posted on :- 
+                </div>
+                <div class="user_pp d-flex float-end " style="font-size: large;color: rgb(88, 88, 88)">
+                    DD/MM/YYYY
+                </div>
+            </div>
+          </div>
+        </div>
+        
+      <hr style="border: solid 0.75px !important" />
+      <div class="row d-flex justify-content-center">
+        <div class="col-xl-8 col-lg-8 col-md-9 col-sm-10 col-12 m-2" style="font-size: larger;">
+          Submit your answer
+        </div>
+        <div class=" col-xl-8 col-lg-8 col-md-9 col-sm-10 col-12 ">
+          <div class="input-group">
+            <span class="input-group-text">Answer</span>
+            <textarea class="form-control ans_body " aria-label="Body" placeholder="Write your answer..."></textarea>
+          </div>
+        </div>
+        <div class="d-flex justify-content-center mt-3">
+          <div class="col-3 d-flex justify-content-center column-gap-1">
+            <button type="button" class="btn btn-outline-primary">Submit</button>
+            <button type="button" class="btn btn-outline-danger">Cancel</button>
+          </div>
+        </div>
+      </div>
+
+      
+      
+
     </div>
-    
     
 </body>
