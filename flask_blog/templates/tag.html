@@ -4,10 +4,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sansita&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="../static/index.css" />
 </head>
 
-<body style="background-color:rgb(255, 248, 230); font-family: stylesheet;">
+<body style="background-color:E7E4DF; font-family: stylesheet;">
     <nav class="navbar navbar-expand-lg navbar-light " style="border-bottom:1px solid;border-color:black;">
         <div class="container-fluid" >
           <a class="navbar-brand px-5" style="font-size: 40px;color: 3A4D3A !important;" href="#">askQ</a>
@@ -17,13 +17,13 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active px-5"style="font-size:20px;color: 3A4D3A !important;" aria-current="page" href="#">About</a>
+                <a class="nav-link active px-5"style="font-size:20px;color: 3A4D3A !important;" aria-current="page" href="/">About</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link px-5"style="font-size:20px;color: 3A4D3A !important;" href="#">Tag</a>
+                <a class="nav-link px-5"style="font-size:20px;color: 3A4D3A !important;" href="/tag">Tag</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link px-5" style="font-size:20px;color: 3A4D3A !important;"href="#">Question</a>
+                <a class="nav-link px-5" style="font-size:20px;color: 3A4D3A !important;"href="/question">Question</a>
               </li>
               <!-- <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -83,13 +83,16 @@
         <div class="tag_col col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 p-3">
             <div style="border-color:rgb(88, 88, 88); border: solid 1.5px ; border-radius: 5px; color:3A4D3A; word-wrap: break-word; height:fit-content;font-size: large;cursor: pointer " class="tag_box p-3">
                 <div class="tag_title" style="font-style: italic; font-weight: bold;">
-                    {{ post }}
+                    <a href="/{{post}}/question" >{{ post[1]}}</a>
+                    <!-- <a href="{{ url_for('display_question', tag=post) }}">  -->
+                    </a>
+                    <!-- see how to go from tag to question page -->
                 </div>
                 <div class="tag_body" style=" color: rgb(88, 88, 88);" > 
                     Python is a multi-paradigm, dynamically typed, multi-purpose programming language.
                 </div>
                 <div class="tag_questions d-flex justify-content-end " style="color: rgb(88, 88, 88)">
-                    1000 questions
+                    {{post[0]}}
                 </div>
             </div>
         </div>    
@@ -188,7 +191,7 @@
 
     <!-- row for pages -->
     <!-- <div class="d-flex flex-row justify-content-center px-3">
-        <a class="num_button py-2 px-3" style="background-color:3A4D3A;color: white;cursor: pointer;border-color:rgb(88, 88, 88); border: solid 1.5px ; border-radius: 5px; border-radius: 5px" href="{{ url_for('tag_page' , id=3)}}"> 1</a>
+        <a class="num_button py-2 px-3" style="background-color:3A4D3A;color: white;cursor: pointer;border-color:rgb(88, 88, 88); border: solid 1.5px ; border-radius: 5px; border-radius: 5px"> 1</a>
         <div class="p-1" ></div>
         <div class="num_button py-2 px-3" style="cursor: pointer;border-color:rgb(88, 88, 88);color:3A4D3A; border: solid 1.5px ; border-radius: 5px; border-radius: 5px"> 2</div>
         <div class="p-1" ></div>
@@ -205,6 +208,10 @@
             color:rgb(255, 243, 213) !important;
             border-color:rgb(255, 243, 213) !important;
             background-color:3A4D3A;
+        }
+        .page_item{
+            background-color:E7E4DF !important;
+            
         }
         .tag_box:hover{
             transform: scale(1.05);

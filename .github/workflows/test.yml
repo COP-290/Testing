@@ -6,8 +6,28 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v1
+      - uses: BSFishy/pip-action@v1
+        with:
+          packages: |
+            coverage
+            flask-mysqldb
 
-      - run: |
+      - name: Setup Database
+        run: |
           sudo /etc/init.d/mysql start
           mysql -e 'CREATE DATABASE test;' -uroot -proot
-          mysql -e 'SHOW DATABASES;' -uroot -proot      
+          mysql -e 'USE test; CREATE TABLE tabl (tags varchar(255), ID int) ;' -uroot -proot 
+          mysql -e 'USE test; insert into tabl(tags,ID) values ("Python",1);' -uroot -proot 
+          mysql -e 'USE test; insert into tabl(tags,ID) values ("C++",2);' -uroot -proot 
+          mysql -e 'USE test; insert into tabl(tags,ID) values ("JavaScript",3);' -uroot -proot 
+          mysql -e 'USE test; insert into tabl(tags,ID) values ("MySQL",4);' -uroot -proot 
+          mysql -e 'USE test; insert into tabl(tags,ID) values ("Java",5);' -uroot -proot 
+      - name: Clean temp directory
+        run: |
+          python -m coverage run -m unittest
+          python -m coverage report
+        working-directory: ./
+          
+          
