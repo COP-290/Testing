@@ -1,3 +1,28 @@
-body{
-    background-color:E7E4DF;
+.page-link{
+    cursor: pointer;
+    border-color:rgb(88, 88, 88) !important;
+    background-color:  #E7E4DF !important;
+    border: solid 1.5px ; 
+    color: black;
+    border-radius: 5px;
+    margin-left: 5px !important;
+}
+
+.active .page-link{
+    background-color:  rgb(88, 88, 88) !important;
+}
+
+.active .page-link:hover{
+    background-color:  rgb(88, 88, 88) !important;
+    color: white;
+}
+
+.page-link:hover{
+    background-color: #efdfc3 !important;
+    color: black;
+}
+
+.disabled .page-link{
+    background-color:  rgb(88, 88, 88) !important; 
+    color: white;
 }
