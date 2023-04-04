@@ -18,11 +18,21 @@ jobs:
           sudo /etc/init.d/mysql start
           mysql -e 'CREATE DATABASE test;' -uroot -proot
           mysql -e 'USE test; CREATE TABLE Tag (tags varchar(255), ID int) ;' -uroot -proot 
+          mysql -e 'USE test; insert into Tag(tags,ID) values ("Java",11);' -uroot -proot
           mysql -e 'USE test; insert into Tag(tags,ID) values ("Python",1);' -uroot -proot 
-          mysql -e 'USE test; insert into Tag(tags,ID) values ("C++",2);' -uroot -proot 
+          mysql -e 'USE test; insert into Tag(tags,ID) values ("C++",2);' -uroot -proot
+          mysql -e 'USE test; insert into Tag(tags,ID) values ("MySQL",15);' -uroot -proot 
+          mysql -e 'USE test; insert into Tag(tags,ID) values ("Python",7);' -uroot -proot 
+          mysql -e 'USE test; insert into Tag(tags,ID) values ("Java",12);' -uroot -proot
           mysql -e 'USE test; insert into Tag(tags,ID) values ("JavaScript",3);' -uroot -proot 
+          mysql -e 'USE test; insert into Tag(tags,ID) values ("Java",9);' -uroot -proot
+          mysql -e 'USE test; insert into Tag(tags,ID) values ("C++",13);' -uroot -proot 
+          mysql -e 'USE test; insert into Tag(tags,ID) values ("Python",6);' -uroot -proot 
           mysql -e 'USE test; insert into Tag(tags,ID) values ("MySQL",4);' -uroot -proot 
           mysql -e 'USE test; insert into Tag(tags,ID) values ("Java",5);' -uroot -proot 
+          mysql -e 'USE test; insert into Tag(tags,ID) values ("Python",8);' -uroot -proot
+          mysql -e 'USE test; insert into Tag(tags,ID) values ("C++",14);' -uroot -proot 
+          mysql -e 'USE test; insert into Tag(tags,ID) values ("Java",10);' -uroot -proot
       - name: Clean temp directory
         run: |
           python -m coverage run -m unittest
