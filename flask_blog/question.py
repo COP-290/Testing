@@ -4,7 +4,8 @@ from flask_paginate import Pagination, get_page_args
 import MySQLdb
 app=Flask(__name__)
 
-mydb = MySQLdb.connect(host='localhost',
+mydb = MySQLdb.connect(
+    host='localhost',
     user='root',
     passwd='root',
     db='test')
@@ -22,6 +23,7 @@ def get_id_question(tag): # output list of id from a given tag
         c=a[1:b-1]
         if s==c:
          tag_list.append(l[k][1])
+    cursor.close()         
     return tag_list
 
 def question_from_id(id): # output list of all questions from a given id
@@ -31,6 +33,7 @@ def question_from_id(id): # output list of all questions from a given id
     M = []
     for i in l:
         M.append(i)
+    cursor.close()        
     return list(M)
 # print(question_from_id(80))
 # print(question_from_id("'flex'"))
@@ -43,6 +46,7 @@ def questionTag_from_id(id): # list of tag from question id
     # print(l)
     for k in range(0,len(l)):
         tag_list.append(l[k][0])
+    cursor.close()        
     return tag_list
 
 def question_from_tag(tag):
@@ -53,7 +57,7 @@ def question_from_tag(tag):
         c = questionTag_from_id(i)
         if b!=[]:
             b.append(c)
-            l.append(b)
+            l.append(b)            
     return l
 # def question_per_page(offset=0,per_page=3,tag):
 #     l=question_from_tag(tag)
