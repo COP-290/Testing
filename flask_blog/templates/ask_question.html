@@ -129,10 +129,10 @@
             </div>
             <div class="question" style="font-style: italic;font-size: larger; font-weight: bold;">
                 <!-- Mapping typescripts dynamic types into Java Objects subclasses -->
-                {{l[i][0][5]}}
+                {{l[i][0][4]}}
             </div>
             <div class="answer" style=" font-size: larger;color: rgb(88, 88, 88);" > 
-                {{l[i][0][4][0:100]}}
+                {{l[i][0][5][0:100]}}
               <!-- I have a Typescript model being sent as JSON request to my back end server. I can't change the model into a more engineered format, so I have to use what the client is going to send me. The ...  -->
             </div>
             <div class="row py-2 d-flex flex-row ">
@@ -161,9 +161,7 @@
     </div>  
     {% endfor %}
   </div>
-  <div class="d-flex justify-content-center" >
-    {{pagination.links}}
-</div>
+  <!--  -->
   <style>
     .question_box:hover{
         transform: scale(1.005);
