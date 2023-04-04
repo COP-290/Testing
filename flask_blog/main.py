@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, url_for, flash, redirect
 from werkzeug.exceptions import abort
 from flask_paginate import Pagination, get_page_args
 import MySQLdb
-from tag import get_tags, mydb
+from tag import get_tags
 from question import get_id_question,question_from_id,questionTag_from_id
 
 app = Flask(__name__)
@@ -24,7 +24,7 @@ def index_question():
     l=[]
     for i in a: 
         b = question_from_id(i) # all question corresponding to a particular id
-        c = get_tag(i)
+        c = questionTag_from_id(i)
         if b!=[]:
             b.append(c)
             l.append(b)
@@ -45,9 +45,29 @@ def display_question(tag):
     n=len(l)
     return render_template('question.html',l=l,n=n)
 
+
 @app.route('/')
 def index():
     return render_template('index.html')
 
+@app.route('/ask/question', methods=('GET', 'POST'))
+def create():
+    if request.method == 'POST':
+        title = request.form['title']
+        content = request.form['content']
+        tag = request.form['tag']
+        if not title:
+            flash('Title is required!')
+        elif not content:
+            flash('Body is required!')
+        elif not tag:
+            flash('Tag is required')
+        else:
+            # conn = get_db_connection()
+            # cursor.execute('INSERT INTO posts (title, content) VALUES ("%s", "%s")',(title, content))
+            # cursor.commit()
+            return render_template('index.html')
+    return render_template('new_question.html')
+
 if __name__=="__main__":
-    app.run(host='0.0.0.0',debug=True,port=5000)
+    app.run(host='0.0.0.0',debug=True,port=5001)
