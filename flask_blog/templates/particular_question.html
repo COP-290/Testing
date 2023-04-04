@@ -43,11 +43,14 @@
       </div>
   </nav>
 
+  {% for i in range(0,n) %}
   <div class="row">
-
       <div class="row">
           <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 px-5 d-flex justify-content-start" style ="font-size:xx-large; color:3A4D3A;cursor: pointer;">
-              Mapping typescripts dynamic types into Java Object’s subclasses
+              <!-- Mapping typescripts dynamic types into Java Object’s subclasses -->
+            {% autoescape off %}
+              {{l[i][0][4]}}
+            {% endautoescape %}
           </div>
           <div class ="col-xl-3 col-lg-3 col-md-3 col-sm-12 px-4 py-2 d-flex justify-content-end">
               <button type="button" class="btn btn-success" style="color:E7E4DF;border-color: 3A4D3A ;font-size: large; background-color: 3A4D3A;height: fit-content;">
@@ -63,20 +66,34 @@
                   like
                 </div>
                 <div class="like">
-                  1
+                 {{l[i][0][3]}}
                 </div>
                 <div class="like">
                   disike
                 </div>
               </div>
             
-              <div class="col-10 p-1 d-flex justify-content-end" style ="font-size:x-large; color:3A4D3A;cursor: pointer;">
-                  I have a Typescript model being sent as JSON request to my back end server. I can't change the model into a more engineered format, so I have to use what the client is going to send me. The ... 
+              <div class="col-10 p-1 d-flex justify-content-end flex-column" style ="font-size:x-large; color:3A4D3A;cursor: pointer;">
+                {% autoescape off %}
+              {{l[i][0][5]}}
+              {% endautoescape %}
+                  <!-- I have a Typescript model being sent as JSON request to my back end server. I can't change the model into a more engineered format, so I have to use what the client is going to send me. The ...  -->
               </div>
           </div>
       </div>
+      <div class="row py-2 d-flex flex-row ">
+        <div class="d-flex flex-row flex-wrap justify-content-start px-3" style="row-gap: 15px;">
+          {% for j in l[i][1] %}
+          <div class="  justify-content-start px-3">
+            <a class="num_button py-2 my-5 px-3" style="background-color:3A4D3A;color: white;cursor: pointer;border-color:rgb(88, 88, 88); border-color:3A4D3A  ; border-radius: 5px; border-radius: 5px" href="{{tag}}/question">
+              {{j}}
+            </a>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
 
-      <div class="row px-5 py-3 justify-content-between d-flex justify-content-center">
+      <!-- <div class="row px-5 py-3 justify-content-between d-flex justify-content-center">
           <div class=" col-xl-8 col-lg-8 col-md-8 col-sm-8 col-12 d-flex flex-row flex-wrap" >
               <button type="button" class="tag_btn btn btn-secondary btn-sm" style="color:E7E4DF;border-color: E7E4DF ;font-size: large; background-color: 3A4D3A;">javascript</button>
               <button type="button" class="tag_btn btn btn-secondary btn-sm" style="color:E7E4DF;border-color: E7E4DF ;font-size: large; background-color: 3A4D3A;">javascript</button>
@@ -87,7 +104,7 @@
               <button type="button" class="tag_btn btn btn-secondary btn-sm" style="color:E7E4DF;border-color: E7E4DF ;font-size: large; background-color: 3A4D3A;">javascript</button>
               <button type="button" class="tag_btn btn btn-secondary btn-sm" style="color:E7E4DF;border-color: E7E4DF ;font-size: large; background-color: 3A4D3A;">javascript</button>
               <button type="button" class="tag_btn btn btn-secondary btn-sm" style="color:E7E4DF;border-color: E7E4DF ;font-size: large; background-color: 3A4D3A;">javascript</button>
-          </div>
+          </div> -->
 
           <div  class="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-12 mt-3 justify-content-sm-center post_data_box mb-3"style="border-color:rgb(88, 88, 88); border: solid 1.5px ; border-radius: 5px; color:3A4D3A; word-wrap: break-word; height:fit-content;font-size: large;cursor: pointer;width:min-content; ">
               <div class="row px-2 d-flex">
@@ -107,17 +124,20 @@
                       Posted on :- 
                   </div>
                   <div class="user_pp d-flex float-end " style="font-size: larger;color: rgb(88, 88, 88)">
-                      DD/MM/YYYY
+                      <!-- DD/MM/YYYY -->
+                      {{l[i][0][2]}}
                   </div>
               </div>
           </div>
       </div>
-
+  
       <hr style="border: solid 0.75px !important" />
-      
+      {% endfor %}
       <div class="row">
+      
+        {% for answer in ans_list %}
         <div class="col-6 no_answer d-flex justify-content-end">
-          1 Answers
+          {{m}} Answers
         </div>
         <div class="col-6 px-3 d-flex justify-content-start">
           <div class="dropdown col-4 px-4 ">
@@ -139,7 +159,8 @@
                   like
                 </div>
                 <div class="like">
-                  1
+                  {{answer}}
+                  {{answer[0][4]}}
                 </div>
                 <div class="like">
                   disike
@@ -147,7 +168,8 @@
               </div>
             
               <div class="col-10 p-1 d-flex justify-content-end" style ="font-size:x-large; color:3A4D3A;cursor: pointer;">
-                  I have a Typescript model being sent as JSON request to my back end server. I can't change the model into a more engineered format, so I have to use what the client is going to send me. The ... 
+                {{answer[0][5]}}  
+                <!-- I have a Typescript model being sent as JSON request to my back end server. I can't change the model into a more engineered format, so I have to use what the client is going to send me. The ...  -->
               </div>
           </div>
       </div>
@@ -169,12 +191,15 @@
                   Posted on :- 
               </div>
               <div class="user_pp d-flex float-end " style="font-size: large;color: rgb(88, 88, 88)">
-                  DD/MM/YYYY
+                  <!-- DD/MM/YYYY -->
+                  {{answer[0][2]}}
               </div>
           </div>
         </div>
+
       </div>
-      
+    {% endfor %}
+    </div>
     <hr style="border: solid 0.75px !important" />
     <div class="row d-flex justify-content-center">
       <div class="col-xl-8 col-lg-8 col-md-9 col-sm-10 col-12 m-2" style="font-size: larger;">
@@ -197,6 +222,6 @@
     
     
 
-  </div>
+  
   
 </body>
