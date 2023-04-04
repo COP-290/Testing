@@ -94,7 +94,7 @@ def index():
 
 @app.route('/<string:tag>/question',methods=['GET'])
 def question_page(tag): # took care when question is less than 3
-    page, per_page, offset = get_page_args(page_parameter='page',per_page_parameter='per_page')
+    # page, per_page, offset = get_page_args(page_parameter='page',per_page_parameter='per_page')
     tag='flex'
     t=question_per_page(offset=offset,per_page=per_page,tag=tag)
     total = (t[1])
