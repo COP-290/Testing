@@ -76,7 +76,8 @@ def question_per_page(offset=0,per_page=3,tag='flex'):
      post=l[offset:offset+per_page]
     else:
         post=l[offset:]
-    return (post,min(n,offset+per_page))
+    print(post)
+    return (post,n)
 
 def showQuestion_byscore_help():
     conn=requestConnection()
@@ -95,46 +96,52 @@ def showQuestion_byscore_help():
     return ans
 # print((showQuestion_byscore_help()[0]),len(showQuestion_byscore_help()[0]))
 
-@app.route('/')
-def index():
-    l=question_from_tag('flex')
-    n=len(l)
-    return render_template('question.html',l=l,n=n)
+# @app.route('/')
+# def index():
+#     l=question_from_tag('flex')
+#     n=len(l)
+#     return render_template('question.html',l=l,n=n)
 
-
-@app.route('/<string:tag>/question',methods=['GET'])
-def display_question(tag): 
-    l=question_from_tag(tag)
-    n=len(l)
-    return render_template('question.html',l=l,n=n)
 
 # @app.route('/<string:tag>/question',methods=['GET'])
-# def question_page(tag): # took care when question is less than 3
-#     page, per_page, offset = get_page_args(page_parameter='page',per_page_parameter='per_page')
-#     tag='flex'
-#     t=question_per_page(offset=offset,per_page=per_page,tag=tag)
-#     total = (t[1])
-#     pagination = Pagination(page=page, per_page=per_page, total=total,css_framework='bootstrap5')
-#     return render_template('ask_question.html',l=t[0],n=offset+per_page)
+# def display_question(tag): 
+#     l=question_from_tag(tag)
+#     n=len(l)
+#     return render_template('question.html',l=l,n=n)
 
-@app.route('/ask/question', methods=('GET', 'POST'))
-def create():
-    if request.method == 'POST':
-        title = request.form['title']
-        content = request.form['content']
-        tag = request.form['tag']
-        if not title: flash('Title is required!')
-        elif not content: flash('Body is required!')
-        elif not tag: flash('Tag is required')
-        else:
-            # conn = get_db_connection()
-            # cursor.execute('INSERT INTO posts (title, content) VALUES ("%s", "%s")',(title, content))
-            # cursor.commit()
-            return redirect(url_for('index'))
-    return render_template('ask_question.html')
+@app.route('/<string:tag>/question',methods=['GET'])
+def question_page(tag): # took care when question is less than 3
+    page, per_page, offset = get_page_args(page_parameter='page',per_page_parameter='per_page')
+    per_page=3
+    offset=(page-1)*per_page
+    t=question_per_page(offset=offset,per_page=per_page,tag=tag)
+    print(offset,per_page)
+    total = (t[1])
+    pagination = Pagination(page=page, per_page=per_page, total=total,css_framework='bootstrap5')
+    n=0
+    if total<3:
+        n=total
+    else:
+        n=3
+    return render_template('ask_question.html',l=t[0],n=n,page=page,per_page=3,pagination=pagination)
 
-# if __name__=="__main__":
-#     app.run(host='0.0.0.0',debug=True,port=7000)
+# @app.route('/ask/question', methods=('GET', 'POST'))
+# def create():
+#     if request.method == 'POST':
+#         title = request.form['title']
+#         content = request.form['content']
+#         tag = request.form['tag']
+#         if not title: flash('Title is required!')
+#         elif not content: flash('Body is required!')
+#         elif not tag: flash('Tag is required')
+#         else:
+#             # conn = get_db_connection()
+#             # cursor.execute('INSERT INTO posts (title, content) VALUES ("%s", "%s")',(title, content))
+#             # cursor.commit()
+#             return redirect(url_for('index'))
+#     return render_template('ask_question.html')
+
+
 
 
 def sort_que_by_time():
@@ -154,3 +161,5 @@ def sort_que_by_time():
     return ans
 
 # print(sort_que_by_time())
+if __name__=="__main__":
+    app.run(host='0.0.0.0',debug=True,port=7000)

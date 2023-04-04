@@ -13,12 +13,8 @@ app.config['SECRET_KEY'] = 'your secret key'
 def tag_page():
     page, per_page, offset = get_page_args(page_parameter='page',per_page_parameter='per_page')
     per_page=6
-    offset = (page - 1) *per_page+1
-    print(offset,page,per_page)
+    offset = (page - 1) *per_page
     pagination_users,total=get_tags(offset=offset,per_page=6)
-    print(total)
-    # total = len(pagination_users)
-    total=1150
     pagination = Pagination(page=page, per_page=6, total=total,css_framework='bootstrap5')
     return render_template('tag.html',tags=pagination_users,page=page,per_page=6,pagination=pagination)
 
@@ -47,7 +43,9 @@ def display_question(tag):
             b.append(c)
             l.append(b)
     n=len(l)
+    print(l)
     return render_template('question.html',l=l,n=n)
+
 
 
 @app.route('/')
@@ -83,4 +81,4 @@ def create():
     return render_template('new_question.html')
 
 if __name__=="__main__":
-    app.run(host='0.0.0.0',debug=True,port=5011)
+    app.run(host='0.0.0.0',debug=True,port=5010)
