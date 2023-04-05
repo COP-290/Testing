@@ -14,23 +14,36 @@ def requestConnection():
 def requestCursor(conn):
     return conn.cursor()
 
-def get_id_question(tag): # output list of id from a given tag
-    s=tag
-    conn=requestConnection()
-    cursor=requestCursor(conn)
-    l=cursor.execute('SELECT * FROM Tag')
-    l=cursor.fetchall()
-    tag_list=[]
-    for k in range(0,len(l)):
-        a=l[k][0]
-        b=len(a)
-        c=a[1:b-1]
-        if s==c:
-         tag_list.append(l[k][1])
-    cursor.close()
-    conn.close()
-    return tag_list
+# def get_id_question(tag): # output list of id from a given tag
+#     s=tag
+#     conn=requestConnection()
+#     cursor=requestCursor(conn)
+#     l=cursor.execute('SELECT * FROM Tag')
+#     l=cursor.fetchall()
+#     tag_list=[]
+#     for k in range(0,len(l)):
+#         a=l[k][0]
+#         b=len(a)
+#         c=a[1:b-1]
+#         if s==c:
+#          tag_list.append(l[k][1])
+#     cursor.close()
+#     conn.close()
+#     return tag_list
 
+def get_id_question(tag):
+    conn = requestConnection()
+    cursor = requestCursor(conn)
+    tags = '"' + tag + '"'
+    l = cursor.execute('SELECT ID FROM Tag where tags= ' + tags)
+    l = cursor.fetchall()
+    ans = []
+    for i in range(len(l)):
+        ans.append(l[i][0])
+    return ans
+
+# print("flex"[1:-1])
+# print(get_id_question("flex"))
 def question_from_id(id): # output list of all questions from a given id
     conn=requestConnection()
     cursor=requestCursor(conn)
@@ -60,31 +73,33 @@ def questionTag_from_id(id): # list of tag from question id
 
 def question_from_tag(tag):
     a=get_id_question(tag) # list of id for particular tag
-    l=[]
-    for i in a: 
-        b = question_from_id(i) # all question corresponding to a particular id
-        c = questionTag_from_id(i)
-        if b!=[]:
-            b.append(c)
-            l.append(b)            
-    return l
-# print(question_from_tag('c#'))
-def question_per_page(offset=0,per_page=3,tag='flex'):
-    l=question_from_tag(tag)
+    Ans=[]
+    conn=requestConnection()
+    cursor=requestCursor(conn)
+    for i in range(1):
+        l=cursor.execute('SELECT * FROM Question where id = ' + str(a[i]))
+        l=cursor.fetchall()
+        m = cursor.execute('SELECT tags FROM Tag where id = ' + str(a[i]))
+        m = cursor.fetchall()
+        M = []
+        for i in range(len(m)):
+            M.append( m[i][0])
+        L = list(l)
+        L.append(m)
+        Ans.append(L)          
+    return Ans
+
+print(question_from_tag('c#'))
+def question_per_page(l,offset=0,per_page=3,tag='flex'):
     n=len(l)
     if offset+per_page< n:
      post=l[offset:offset+per_page]
     else:
         post=l[offset:]
-    print(post)
+    # print(post)
     return (post,n)
 
-def showQuestion_byscore_help():
-    conn=requestConnection()
-    cursor=requestCursor(conn)
-    l=cursor.execute('SELECT * FROM Question ORDER BY Score DESC')
-    l=cursor.fetchall()
-    n=len(l)
+def tag_list_from_listof_id(l,n):
     ans=[]
     for i in range(0,n):
         a=l[i][0]
@@ -93,6 +108,15 @@ def showQuestion_byscore_help():
         c.append(l[i])
         c.append(b)
         ans.append(c)
+    return ans
+
+def showQuestion_byscore_help():
+    conn=requestConnection()
+    cursor=requestCursor(conn)
+    l=cursor.execute('SELECT * FROM Question ORDER BY Score DESC')
+    l=cursor.fetchall()
+    n=len(l)
+    ans=tag_list_from_listof_id(l,n)
     return ans
 # print((showQuestion_byscore_help()[0]),len(showQuestion_byscore_help()[0]))
 
@@ -115,12 +139,12 @@ def question_page(tag): # took care when question is less than 3
     per_page=3
     offset=(page-1)*per_page
     t=question_per_page(offset=offset,per_page=per_page,tag=tag)
-    print(offset,per_page)
+    #print(offset,per_page)
     total = (t[1])
     pagination = Pagination(page=page, per_page=per_page, total=total,css_framework='bootstrap5')
     n=0
-    if total<3:
-        n=total
+    if (total)<3*(page):
+        n=total % 3
     else:
         n=3
     return render_template('ask_question.html',l=t[0],n=n,page=page,per_page=3,pagination=pagination)
@@ -150,16 +174,9 @@ def sort_que_by_time():
     l=cursor.execute('SELECT * FROM Question ORDER BY Creation_Date ASC')
     l=cursor.fetchall()
     n=len(l)
-    ans=[]
-    for i in range(0,n):
-        a=l[i][0]
-        b=questionTag_from_id(a)
-        c=[]
-        c.append(l[i])
-        c.append(b)
-        ans.append(c)
+    ans=tag_list_from_listof_id()
     return ans
 
-# print(sort_que_by_time())
-if __name__=="__main__":
-    app.run(host='0.0.0.0',debug=True,port=7000)
+# # print(sort_que_by_time())
+# if __name__=="__main__":
+#     app.run(host='0.0.0.0',debug=True,port=7000)
