@@ -1,0 +1,142 @@
+.page-link{
+    cursor: pointer;
+    border-color:rgb(88, 88, 88) !important;
+    background-color:  #E7E4DF !important;
+    border: solid 1.5px ; 
+    color: black;
+    border-radius: 5px;
+    margin-left: 5px !important;
+}
+
+.active .page-link{
+    background-color:  rgb(88, 88, 88) !important;
+}
+
+.active .page-link:hover{
+    background-color:  rgb(88, 88, 88) !important;
+    color: white;
+}
+
+.page-link:hover{
+    background-color: #f5f2ef !important;
+    color: black;
+}
+
+.disabled .page-link{
+    background-color:  rgb(88, 88, 88) !important; 
+    color: white;
+}
+.input-group-text{
+    background-color: 3A4D3A;
+    color:E7E4DF;
+    width:70px;
+}
+.q_body{
+    height:350px
+}
+.tag_btn{
+    height:fit-content;
+}
+.no_answer{
+    font-size: 20px;
+}
+.tag_btn:hover{
+    color:3A4D3A !important;
+    background-color:rgb(255, 243, 213)!important;
+    border-color: 3A4D3A!important;
+}
+.answer_box{
+    border-color:rgb(88, 88, 88); 
+    border: solid 1.5px ; 
+    border-radius: 5px; 
+    color:3A4D3A; 
+    word-wrap: break-word; 
+    height:fit-content;
+    font-size: 20px;
+    cursor: pointer;
+}
+.ans_body{
+    height:350px
+}
+.input-group-text{
+    background-color: 3A4D3A;
+    color:E7E4DF;
+    width:70px;
+}
+.nav-pills .active{
+    background-color: 3A4D3A !important;
+    color:E7E4DF !important;
+}
+.nav-link{
+    font-size:20px;color: 3A4D3A !important;
+}
+.nav-link:hover {
+    color:3A4D3A
+}
+.user_pp{
+    color:3A4D3A
+}
+.aboutme_box{
+    background-color: white;
+    border-radius: 10px;
+    border:solid 1.5px;
+}
+.input-group-text{
+    background-color: 3A4D3A;
+    color:E7E4DF;
+    width:100px;
+}
+.q_body{
+    height:350px
+}
+.question_box:hover{
+    transform: scale(1.005);
+    transition: transform 0.25s ease-in-out;
+    background-color:3A4D3A;
+}
+.question_box:hover .question{
+    color:rgb(255, 243, 213) !important;
+}
+.question_box:hover .answer{
+    color:rgb(255, 243, 213) !important;
+}
+.question_box:hover .user_pp{
+    color:rgb(255, 243, 213)!important;
+}
+.question_box:hover .vav{
+    color:rgb(255, 243, 213)!important;
+}
+.question_box:hover .tag_btn{
+  color:3A4D3A !important;
+  background-color:rgb(255, 243, 213)!important;
+  border-color: 3A4D3A!important;
+}
+.tag_btn:hover {
+  transform: scale(1.005);
+  transition: transform 0.25s ease-in-out;
+  color:3A4D3A !important;
+  background-color:rgb(255, 243, 213)!important;
+}
+.num_button:hover{
+        color:rgb(255, 243, 213) !important;
+        border-color:rgb(255, 243, 213) !important;
+        background-color:3A4D3A;
+}
+.navbar{
+    border-bottom:1px solid;border-color:black;
+}
+.navbar-brand{
+    font-size: 40px;color: 3A4D3A !important;
+}
+.nav_active{
+    font-size:20px;color: 3A4D3A !important;
+}
+.nav_search_btn {
+    background-color:3A4D3A;color:E7E4DF;border-color:3A4D3A ;border-radius: 4px;
+}
+.user_ppp{
+    font-size: larger;color: rgb(88, 88, 88);color: 3A4D3A !important;cursor: pointer;
+}
+.page_title{
+    font-size:xxx-large; color:3A4D3A;
+}

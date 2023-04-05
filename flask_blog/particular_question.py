@@ -45,7 +45,6 @@ def particular_que_from_id(id):
     ans=[]
     ans.append(b)
     ans.append(tag)
-
     return ans
 # print(answer_from_id())
 # print(particular_que_from_id(80))
@@ -63,10 +62,6 @@ def answer_from_parent_id(id):
 # print(answer_from_parent_id(80))
 @app.route('/')
 def particular_question():
-    conn = requestConnection()
-    cursor = requestCursor(conn)
-    l=cursor.execute(
-        "SELECT Orders.OrderID, Customers.CustomerName, Orders.OrderDate FROM Orders INNER JOIN Customers ON Orders.CustomerID=Customers.CustomerID;")
     l=particular_que_from_id(80)
     n=1
     ans_list=answer_from_parent_id(80)

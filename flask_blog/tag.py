@@ -74,3 +74,4 @@ def get_tags(offset=0,per_page=6):
     n=cursor.fetchall()[0][0]
     if (l==[]) or (l is None): abort(404)
     return l,n
+print(get_tags()[1])

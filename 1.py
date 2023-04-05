@@ -15,7 +15,7 @@ cursor = mydb.cursor()
 # sql = 'ALTER TABLE Question MODIFY COLUMN id INT AUTO_INCREMENT'
 # sql = 'ALTER TABLE Question MODIFY COLUMN id INT PRIMARY KEY'
 # sql = 'ALTER TABLE Question MODIFY COLUMN Creation_Date DATETIME DEFAULT NOW()'
-sql1 = "'DROP TABLE IF EXISTS `User` ; CREATE TABLE User ( ID int,Display_Name varchar(500),,About_me TEXT,Creation_Date DATETIME default NOW(),Last_access_time DATETIME default NOW(), Location TEXT,reputation int default null,up_votes int default null, down_votes int default null, profile_image_url varchar(800),website_url varchar(100));'"
+sql1 = "'DROP TABLE IF EXISTS `Tag` ; CREATE TABLE Tag ( ID int,tags varchar(80) );'"
 cursor.execute(sql1)
 
 # with open('C:/Users/Desktop/Code/python/sample.csv') as csvfile:

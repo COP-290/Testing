@@ -1,3 +1,20 @@
+
+from flask import Flask, render_template, request, url_for, flash, redirect
+from werkzeug.exceptions import abort
+from flask_paginate import Pagination, get_page_args
+import MySQLdb
+app=Flask(__name__)
+
+def requestConnection():
+    mydb = MySQLdb.connect(host='localhost',
+    user='root',
+    passwd='root',
+    db='test')
+    return mydb
+
+def requestCursor(conn):
+    return conn.cursor()
+
 def filterbytag(s): # to use in question api
     # conn=get_db_connection()
     # cursor.execute('SELECT question FROM Question WHERE tags="%s',s)
@@ -33,3 +50,47 @@ def showQuestion_byscore():
     l=cursor.fetchall()
     n=len(l)
     return render_template('question.html',l=l,n=n)
+
+def get_id_question(tag):
+    conn = requestConnection()
+    cursor = requestCursor(conn)
+    tags = '"' + tag + '"'
+    l = cursor.execute('SELECT ID FROM Tag where tags= ' + tags)
+    l = cursor.fetchall()
+    ans = []
+    for i in range(len(l)):
+        ans.append(l[i][0])
+    return ans
+
+def question_from_tag(tag,offset):
+    Ans=[]
+    conn=requestConnection()
+    cursor=requestCursor(conn)
+    tags = '"' + tag + '"'
+    a=cursor.execute('select ID from Tag where tags = '+tags+' limit 3 offset '+str(offset))
+    a=cursor.fetchall()
+    for i in range(len(a)):
+        l=cursor.execute('SELECT * FROM Question where id = ' + str(a[i][0]))
+        l=cursor.fetchall()
+        m = cursor.execute('SELECT tags FROM Tag where id = ' + str(a[i][0]))
+        m = cursor.fetchall()
+        M = []
+        for i in range(len(m)):
+            M.append( m[i][0])
+        L = list(l)
+        L.append(M)
+        Ans.append(L)  
+    cursor.close()
+    conn.close()        
+    return Ans
+
+# print(question_from_tag("c++",0))
+# print()
+# print(question_from_tag('c++',1))
+
+conn=requestConnection()
+cursor=requestCursor(conn)
+tag='"flex"'
+a=cursor.execute('select count(ID) from Question ')
+a=cursor.fetchall()
+print(a)

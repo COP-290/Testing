@@ -9,45 +9,47 @@
 
 <body style="background-color:E7E4DF; font-family: stylesheet;">
   <nav class="navbar navbar-expand-lg navbar-light " style="border-bottom:1px solid;border-color:black;">
-      <div class="container-fluid" >
-        <a class="navbar-brand px-5" style="font-size: 40px;color: 3A4D3A !important;" href="#">askQ</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active px-5"style="font-size:20px;color: 3A4D3A !important;" aria-current="page" href="#">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link px-5"style="font-size:20px;color: 3A4D3A !important;" href="#">Tag</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link px-5" style="font-size:20px;color: 3A4D3A !important;"href="#">Question</a>
-            </li>
-          </ul> 
-          
-          <form class="d-flex pt-3">
-            <input class="form-control me-2" type="search" placeholder="Search..." aria-label="Search">
-            <button type="button" style="background-color:3A4D3A;color:E7E4DF;border-color:3A4D3A ;border-radius: 4px;"class="btn btn-success">Search</button>
-          </form>
-          <div class="col-1 user_pp d-flex justify-content-end " style="font-size: larger;color: rgb(88, 88, 88);color: 3A4D3A !important;cursor: pointer;">
-              <div class="d-flex justify-content-center" >
-                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-                    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-                </svg>
-              </div>
+    <div class="container-fluid" >
+      <a class="navbar-brand px-5" style="font-size: 40px;color: 3A4D3A !important;" href="#">askQ</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active px-5"style="font-size:20px;color: 3A4D3A !important;" aria-current="page" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link px-5"style="font-size:20px;color: 3A4D3A !important;" href="#">Tag</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link px-5" style="font-size:20px;color: 3A4D3A !important;"href="#">Question</a>
+          </li>
+        </ul> 
+        
+        <form class="d-flex pt-3">
+          <input class="form-control me-2" type="search" placeholder="Search..." aria-label="Search">
+          <button type="button" style="background-color:3A4D3A;color:E7E4DF;border-color:3A4D3A ;border-radius: 4px;"class="btn btn-success">Search</button>
+        </form>
+        <div class="col-1 user_pp d-flex justify-content-end " style="font-size: larger;color: rgb(88, 88, 88);color: 3A4D3A !important;cursor: pointer;">
+            <div class="d-flex justify-content-center" >
+              <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                  <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+              </svg>
             </div>
         </div>
       </div>
-  </nav>
-
+    </div>
+</nav>
+  {% for i in range(0,n) %}
   <div class="row">
-
       <div class="row">
           <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 px-5 d-flex justify-content-start" style ="font-size:xx-large; color:3A4D3A;cursor: pointer;">
-              Mapping typescripts dynamic types into Java Object’s subclasses
+              <!-- Mapping typescripts dynamic types into Java Object’s subclasses -->
+            {% autoescape off %}
+              {{l[i][0][4]}}
+            {% endautoescape %}
           </div>
           <div class ="col-xl-3 col-lg-3 col-md-3 col-sm-12 px-4 py-2 d-flex justify-content-end">
               <button type="button" class="btn btn-success" style="color:E7E4DF;border-color: 3A4D3A ;font-size: large; background-color: 3A4D3A;height: fit-content;">
@@ -63,20 +65,34 @@
                   like
                 </div>
                 <div class="like">
-                  1
+                 {{l[i][0][3]}}
                 </div>
                 <div class="like">
                   disike
                 </div>
               </div>
             
-              <div class="col-10 p-1 d-flex justify-content-end" style ="font-size:x-large; color:3A4D3A;cursor: pointer;">
-                  I have a Typescript model being sent as JSON request to my back end server. I can't change the model into a more engineered format, so I have to use what the client is going to send me. The ... 
+              <div class="col-10 p-1 d-flex justify-content-end flex-column" style ="font-size:x-large; color:3A4D3A;cursor: pointer;">
+                {% autoescape off %}
+              {{l[i][0][5]}}
+              {% endautoescape %}
+                  <!-- I have a Typescript model being sent as JSON request to my back end server. I can't change the model into a more engineered format, so I have to use what the client is going to send me. The ...  -->
               </div>
           </div>
       </div>
+      <div class="row py-2 d-flex flex-row ">
+        <div class="d-flex flex-row flex-wrap justify-content-start px-3" style="row-gap: 15px;">
+          {% for j in l[i][1] %}
+          <div class="  justify-content-start px-3">
+            <a class="num_button py-2 my-5 px-3" style="background-color:3A4D3A;color: white;cursor: pointer;border-color:rgb(88, 88, 88); border-color:3A4D3A  ; border-radius: 5px; border-radius: 5px" href="{{tag}}/question">
+              {{j}}
+            </a>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
 
-      <div class="row px-5 py-3 justify-content-between d-flex justify-content-center">
+      <!-- <div class="row px-5 py-3 justify-content-between d-flex justify-content-center">
           <div class=" col-xl-8 col-lg-8 col-md-8 col-sm-8 col-12 d-flex flex-row flex-wrap" >
               <button type="button" class="tag_btn btn btn-secondary btn-sm" style="color:E7E4DF;border-color: E7E4DF ;font-size: large; background-color: 3A4D3A;">javascript</button>
               <button type="button" class="tag_btn btn btn-secondary btn-sm" style="color:E7E4DF;border-color: E7E4DF ;font-size: large; background-color: 3A4D3A;">javascript</button>
@@ -87,7 +103,7 @@
               <button type="button" class="tag_btn btn btn-secondary btn-sm" style="color:E7E4DF;border-color: E7E4DF ;font-size: large; background-color: 3A4D3A;">javascript</button>
               <button type="button" class="tag_btn btn btn-secondary btn-sm" style="color:E7E4DF;border-color: E7E4DF ;font-size: large; background-color: 3A4D3A;">javascript</button>
               <button type="button" class="tag_btn btn btn-secondary btn-sm" style="color:E7E4DF;border-color: E7E4DF ;font-size: large; background-color: 3A4D3A;">javascript</button>
-          </div>
+          </div> -->
 
           <div  class="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-12 mt-3 justify-content-sm-center post_data_box mb-3"style="border-color:rgb(88, 88, 88); border: solid 1.5px ; border-radius: 5px; color:3A4D3A; word-wrap: break-word; height:fit-content;font-size: large;cursor: pointer;width:min-content; ">
               <div class="row px-2 d-flex">
@@ -107,17 +123,20 @@
                       Posted on :- 
                   </div>
                   <div class="user_pp d-flex float-end " style="font-size: larger;color: rgb(88, 88, 88)">
-                      DD/MM/YYYY
+                      <!-- DD/MM/YYYY -->
+                      {{l[i][0][2]}}
                   </div>
               </div>
           </div>
       </div>
-
+  
       <hr style="border: solid 0.75px !important" />
-      
+      {% endfor %}
       <div class="row">
+      
+        {% for answer in ans_list %}
         <div class="col-6 no_answer d-flex justify-content-end">
-          1 Answers
+          {{m}} Answers
         </div>
         <div class="col-6 px-3 d-flex justify-content-start">
           <div class="dropdown col-4 px-4 ">
@@ -139,15 +158,21 @@
                   like
                 </div>
                 <div class="like">
-                  1
+                  {% autoescape off %}
+                   {{answer[4]}}
+              {% endautoescape %}
                 </div>
                 <div class="like">
                   disike
                 </div>
               </div>
             
-              <div class="col-10 p-1 d-flex justify-content-end" style ="font-size:x-large; color:3A4D3A;cursor: pointer;">
-                  I have a Typescript model being sent as JSON request to my back end server. I can't change the model into a more engineered format, so I have to use what the client is going to send me. The ... 
+              <div class="col-10 p-1 d-flex justify-content-end flex-column" style ="font-size:x-large; color:3A4D3A;cursor: pointer;">
+               
+                {% autoescape off %}
+                {{answer[5]}} 
+              {% endautoescape %} 
+                <!-- I have a Typescript model being sent as JSON request to my back end server. I can't change the model into a more engineered format, so I have to use what the client is going to send me. The ...  -->
               </div>
           </div>
       </div>
@@ -169,12 +194,18 @@
                   Posted on :- 
               </div>
               <div class="user_pp d-flex float-end " style="font-size: large;color: rgb(88, 88, 88)">
-                  DD/MM/YYYY
+                  <!-- DD/MM/YYYY -->
+                  {% autoescape off %}
+             {{answer[2]}}
+              {% endautoescape %}
+                 
               </div>
           </div>
         </div>
+
       </div>
-      
+    {% endfor %}
+    </div>
     <hr style="border: solid 0.75px !important" />
     <div class="row d-flex justify-content-center">
       <div class="col-xl-8 col-lg-8 col-md-9 col-sm-10 col-12 m-2" style="font-size: larger;">
@@ -193,10 +224,7 @@
         </div>
       </div>
     </div>
-
-    
-    
-
-  </div>
-  
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/atom-one-light.min.css" integrity="sha512-o5v54Kh5PH0dgnf9ei0L+vMRsbm5fvIvnR/XkrZZjN4mqdaeH7PW66tumBoQVIaKNVrLCZiBEfHzRY4JJSMK/Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script>hljs.initHighlightingOnLoad();</script>
