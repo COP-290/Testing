@@ -1,0 +1,29 @@
+.tag_btn{
+    height:fit-content;
+}
+.no_answer{
+    font-size: 20px;
+}
+.tag_btn:hover{
+    color:3A4D3A !important;
+    background-color:rgb(255, 243, 213)!important;
+    border-color: 3A4D3A!important;
+}
+.answer_box{
+    border-color:rgb(88, 88, 88); 
+    border: solid 1.5px ; 
+    border-radius: 5px; 
+    color:3A4D3A; 
+    word-wrap: break-word; 
+    height:fit-content;
+    font-size: 20px;
+    cursor: pointer "
+}
+.ans_body{
+    height:350px
+}
+.input-group-text{
+    background-color: 3A4D3A;
+    color:E7E4DF;
+    width:70px;
+}

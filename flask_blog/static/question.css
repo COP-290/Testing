@@ -1,0 +1,33 @@
+.question_box:hover{
+    transform: scale(1.005);
+    transition: transform 0.25s ease-in-out;
+    background-color:3A4D3A;
+}
+.question_box:hover .question{
+    color:rgb(255, 243, 213) !important;
+}
+.question_box:hover .answer{
+    color:rgb(255, 243, 213) !important;
+}
+.question_box:hover .user_pp{
+    color:rgb(255, 243, 213)!important;
+}
+.question_box:hover .vav{
+    color:rgb(255, 243, 213)!important;
+}
+.question_box:hover .tag_btn{
+  color:3A4D3A !important;
+  background-color:rgb(255, 243, 213)!important;
+  border-color: 3A4D3A!important;
+}
+.tag_btn:hover {
+  transform: scale(1.005);
+  transition: transform 0.25s ease-in-out;
+  color:3A4D3A !important;
+  background-color:rgb(255, 243, 213)!important;
+}
+.num_button:hover{
+        color:rgb(255, 243, 213) !important;
+        border-color:rgb(255, 243, 213) !important;
+        background-color:3A4D3A;
+    }
