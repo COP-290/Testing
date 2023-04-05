@@ -6,7 +6,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../static/profile.css" />
 </head>
-<body style="background-color:E7E4DF; font-family: stylesheet;">
+<body style="background-color:E7E4DF;">
+
+  <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light " style="border-bottom:1px solid;border-color:black;">
         <div class="container-fluid" >
           <a class="navbar-brand px-5" style="font-size: 40px;color: 3A4D3A !important;" href="#">askQ</a>
@@ -41,114 +43,84 @@
           </div>
         </div>
     </nav>
+  <!-- Navbar -->
 
-    <div class="rwo">
-      <div class="d-flex align-items-center d-flex justify-content-start col-4 m-3" style="font-size: large;">
-        <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-            <button class="nav-link active" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Profile</button>
-            <button class="nav-link" id="v-pills-aboutme-tab" data-bs-toggle="pill" data-bs-target="#v-pills-aboutme" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">About me</button>
-            <button class="nav-link" id="v-pills-activity-tab" data-bs-toggle="pill" data-bs-target="#v-pills-activity" type="button" role="tab" aria-controls="v-pills-activity" aria-selected="false">Activity</button>
-            <button class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</button>
+  <div class="d-flex flex-column justify-content-center mt-3">
+
+    <div class="row user_pp d-flex justify-content-center " style="font-size: larger;color: rgb(88, 88, 88);color: 3A4D3A !important;cursor: pointer;">
+      <div class="d-flex justify-content-center" >
+        <svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="row d-flex justify-content-center mt-3">
+      <div class="username d-flex justify-content-center" style="font-size: 35px;">
+        Username : XX YY
+      </div>
+      <div class="userid d-flex justify-content-center" style="font-size: 35px;">
+        User ID : abcd
+      </div>
+      <div class="joindate d-flex justify-content-center" style="font-size: 35px;">
+        Join Date : DD/MM/YYYY
+      </div>
+    </div>
+
+    <hr/>
+    
+    <div class="aboutme_row row d-flex justify-content-center">
+      <div class="col-8">
+        <div class="input-group">
+          <span class="input-group-text">About me</span>
+          <textarea name="content" class="form-control q_body" aria-label="Body" placeholder="Write something about yorself.."></textarea>
         </div>
+      </div>
+      <div class="aboutme_box mt-3 col-8 d-flex flex-column justify-content-center">
+        <h4 class="py-2 d-flex justify-content-center" style="font-size:larger">
+          About me
+        </h4>
 
-        <div class="col-1 d-flex" style="height:200px;">
-          <div class="vr"></div>
+        <div class="" style="word-wrap:break-word">
+          ebnriuvhrwiewjoiemfiwefjmewpmfewjfinjvlwefmwehinfoewmhvuarionpawefioearbngoueiropuwhemfebnriuvhrwiewjoiemfiwefjmewpmfewjfinjvlwefmwehinfoewmhvuarionpawefioearbngoueiropuwhemfebnriuvhrwiewjoiemfiwefjmewpmfewjfinjvlwefmwehinfoewmhvuarionpawefioearbngoueiropuwhemf
         </div>
-
-        <div class="tab-content col-3" id="v-pills-tabContent">
-
-          <div class="row">
-            <div class="tab-pane fade show active" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-              <div class="col-10 user_pp  " style="font-size: larger;color: rgb(88, 88, 88)">
-                <div class="user_pp d-flex justify-content-start">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-                        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-                    </svg>
-                </div>
-              </div>
-            </div>
-          </div>
-            
-            <div class="row">
-              <div class="col-12"> 
-                <div class="col-lg-8">
-                  <div class="card mb-4">
-                    <div class="card-body">
-                      <div class="row">
-                        <div class="col-sm-3">
-                          <p class="mb-0">Full Name</p>
-                        </div>
-                        <div class="col-sm-9">
-                          <p class="text-muted mb-0">Johnatan Smith</p>
-                        </div>
-                      </div>
-                      <hr>
-                      <div class="row">
-                        <div class="col-sm-3">
-                          <p class="mb-0">Email</p>
-                        </div>
-                        <div class="col-sm-9">
-                          <p class="text-muted mb-0">example@example.com</p>
-                        </div>
-                      </div>
-                      <hr>
-                      <div class="row">
-                        <div class="col-sm-3">
-                          <p class="mb-0">Phone</p>
-                        </div>
-                        <div class="col-sm-9">
-                          <p class="text-muted mb-0">(097) 234-5678</p>
-                        </div>
-                      </div>
-                      <hr>
-                      <div class="row">
-                        <div class="col-sm-3">
-                          <p class="mb-0">Mobile</p>
-                        </div>
-                        <div class="col-sm-9">
-                          <p class="text-muted mb-0">(098) 765-4321</p>
-                        </div>
-                      </div>
-                      <hr>
-                      <div class="row">
-                        <div class="col-sm-3">
-                          <p class="mb-0">Address</p>
-                        </div>
-                        <div class="col-sm-9">
-                          <p class="text-muted mb-0">Bay Area, San Francisco, CA</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-              </div>
-            </div>
-
-            <div class="tab-pane fade" id="v-pills-aboutme" role="tabpanel" aria-labelledby="v-pills-aboutme-tab">
-              <div class="col-10 d-flex justify-content-end">                    
-                ...
-              </div>
-            </div>
-
-            <div class="tab-pane fade" id="v-pills-activity" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-              <div class="col-10 d-flex justify-content-end">
-                ...
-              </div>
-            </div>
-
-            <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
-              <div class="col-10 d-flex justify-content-end">
-                ...
-              </div>
-            </div>
-
+        <div class="d-flex justify-content-center mb-3">
+          <button type="button" class="btn btn-success">Edit</button>
         </div>
       </div>
     </div>
+
+    <hr/>
+
+    <div class="activity_row row">
+      <div class="username d-flex justify-content-center" style="font-size: 26px;">
+        Reputation : 
+      </div>
+      <div class="userid d-flex justify-content-center" style="font-size: 26px;">
+        Up vote :
+      </div>
+      <div class="joindate d-flex justify-content-center" style="font-size: 26px;">
+        Down vote :
+      </div>
+    </div>
+
+    <hr/>
+
+    <div class="settings_row row">
+      <div class="d-flex flex-column justify-content-center">
+        <div class="d-flex justify-content-center mb-3">
+          <button type="button" class="btn btn-outline-success">Edit Profile</button>
+        </div>
+        <div class="d-flex justify-content-center mb-3">
+          <button type="button" class="btn btn-outline-danger">Logout</button>
+        </div>
+        <div class="d-flex justify-content-center mb-3">
+          <button type="button" class="btn btn-outline-danger">Delele Profile</button>
+        </div>
         
+      </div>
+    </div>
+  </div>
 
-  
-
-
-     
 </body>
