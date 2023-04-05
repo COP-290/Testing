@@ -10,10 +10,36 @@ export default function Test(){
     });
   
     // Using useEffect for single rendering
+    function api(){
+        // Using fetch to fetch the api from 
+        // flask server it will be redirected to proxy
+        fetch('/tag', {
+            method: 'POST',
+            body: JSON.stringify({
+              title:"name",
+              body:"body",
+          
+            }),
+            headers: {
+              'Content-type': 'application/json; charset=UTF-8',
+            }
+            })
+            .then(function(response){ 
+            return response.json()})
+            .then(function(data)
+            {console.log(data)
+            // title=document.getElementById("title")
+            // body=document.getElementById("bd")
+            // title.innerHTML = data.title
+            // body.innerHTML = data.body  
+          }).catch(error => console.error('Error:', error)); 
+
+    }
+
     useEffect(() => {
         // Using fetch to fetch the api from 
         // flask server it will be redirected to proxy
-        fetch("/tag").then((res) =>
+        fetch("/data").then((res) =>
             res.json().then((data) => {
                 // Setting a data from api
                 setdata({
@@ -25,16 +51,30 @@ export default function Test(){
             })
         );
     }, []);
+
+    function api(){
+        fetch('/tag/6/2', {
+            method: 'GET',
+            // body: JSON.stringify({
+            //   title:"name",
+            //   body:"body",
+            // }),
+            headers: {
+              'Content-type': 'application/json; charset=UTF-8',
+            }
+            })
+            .then(function(response){ 
+            return response.json()})
+            .then(function(data)
+            {console.log(data)
+          }).catch(error => console.error('Error:', error)); 
+
+    }
   
     return (
         <div className="App">
             <header className="App-header">
-                <h1>React and flask</h1>
-                {/* Calling a data from setdata for showing */}
-                <p>{data.name}</p>
-                <p>{data.age}</p>
-                <p>{data.date}</p>
-                <p>{data.programming}</p>
+                <button onClick={api}>API</button>
   
             </header>
         </div>
