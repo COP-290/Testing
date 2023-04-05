@@ -106,6 +106,9 @@
 .question_box:hover .vav{
     color:rgb(255, 243, 213)!important;
 }
+.vav {
+    border-radius: 4px;
+}
 .question_box:hover .tag_btn{
   color:3A4D3A !important;
   background-color:rgb(255, 243, 213)!important;
@@ -139,4 +142,34 @@
 }
 .page_title{
     font-size:xxx-large; color:3A4D3A;
+}
+.ask_btn{
+    color:E7E4DF;border-color: 3A4D3A ;font-size: large; background-color: 3A4D3A;height: fit-content;
+}
+.answer_title{
+    font-size:x-large; color:3A4D3A;cursor: pointer;
+}
+.post_data_box{
+    border-color:rgb(88, 88, 88); border: solid 1.5px ; border-radius: 5px; color:3A4D3A; word-wrap: break-word; height:fit-content;font-size: large;cursor: pointer;width:min-content; 
+}
+.user_p{
+    font-size: larger;color: rgb(88, 88, 88);position: relative;right:0px;
+}
+.user_p3{
+    font-size: larger;color: rgb(88, 88, 88)
+}
+.sorting_box{
+    background-color: 3A4D3A ;
+    color:E7E4DF;
+    border-color: 3A4D3A;
+    border-radius: 3px;
+}
+.user_p4{
+    font-size: larger;color: rgb(88, 88, 88);position: relative;right:0px;
+}
+body {
+    background-color:E7E4DF;
+}
+.filter_box{
+    border-radius: 2.75px;border-color:3A4D3A ;background-color: 3A4D3A;color: E7E4DF;font-size: large;
 }
