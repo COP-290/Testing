@@ -72,6 +72,5 @@ def get_tags(offset=0,per_page=6):
     l = list(cursor.fetchall())
     n_=cursor.execute('SELECT count( DISTINCT(tags) ) FROM Tag')
     n=cursor.fetchall()[0][0]
-    print(l)
     if (l==[]) or (l is None): abort(404)
     return l,n
