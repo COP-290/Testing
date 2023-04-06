@@ -42,13 +42,13 @@
       </div>
     </div>
 </nav>
-  {% for i in range(0,n) %}
+
   <div class="row">
       <div class="row">
           <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 px-5 d-flex justify-content-start" style ="font-size:xx-large; color:3A4D3A;cursor: pointer;">
               <!-- Mapping typescripts dynamic types into Java Object’s subclasses -->
             {% autoescape off %}
-              {{l[i][0][4]}}
+              {{l[0][4]}}
             {% endautoescape %}
           </div>
           <div class ="col-xl-3 col-lg-3 col-md-3 col-sm-12 px-4 py-2 d-flex justify-content-end">
@@ -65,7 +65,7 @@
                   like
                 </div>
                 <div class="like">
-                 {{l[i][0][3]}}
+                 {{l[0][3]}}
                 </div>
                 <div class="like">
                   disike
@@ -74,7 +74,7 @@
             
               <div class="col-10 p-1 d-flex justify-content-end flex-column" style ="font-size:x-large; color:3A4D3A;cursor: pointer;">
                 {% autoescape off %}
-              {{l[i][0][5]}}
+              {{l[0][5]}}
               {% endautoescape %}
                   <!-- I have a Typescript model being sent as JSON request to my back end server. I can't change the model into a more engineered format, so I have to use what the client is going to send me. The ...  -->
               </div>
@@ -82,10 +82,10 @@
       </div>
       <div class="row py-2 d-flex flex-row ">
         <div class="d-flex flex-row flex-wrap justify-content-start px-3" style="row-gap: 15px;">
-          {% for j in l[i][1] %}
+          {% for j in l[1] %}
           <div class="  justify-content-start px-3">
             <a class="num_button py-2 my-5 px-3" style="background-color:3A4D3A;color: white;cursor: pointer;border-color:rgb(88, 88, 88); border-color:3A4D3A  ; border-radius: 5px; border-radius: 5px" href="{{tag}}/question">
-              {{j}}
+              {{j[0]}}
             </a>
           </div>
           {% endfor %}
@@ -124,20 +124,15 @@
                   </div>
                   <div class="user_pp d-flex float-end " style="font-size: larger;color: rgb(88, 88, 88)">
                       <!-- DD/MM/YYYY -->
-                      {{l[i][0][2]}}
+                      {{l[0][2]}}
                   </div>
               </div>
           </div>
       </div>
   
       <hr style="border: solid 0.75px !important" />
-      {% endfor %}
+     
       <div class="row">
-      
-        {% for answer in ans_list %}
-        <div class="col-6 no_answer d-flex justify-content-end">
-          {{m}} Answers
-        </div>
         <div class="col-6 px-3 d-flex justify-content-start">
           <div class="dropdown col-4 px-4 ">
             <button  style="background-color: 3A4D3A;color:E7E4DF;border-color: 3A4D3A;border-radius: 3px;"class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -150,12 +145,16 @@
             </ul>
           </div>
         </div>
-
+        <div class="col-6 no_answer d-flex justify-content-end">
+          {{m}} Answers
+        </div>
+        {% for answer in ans_list %}
+      
         <div class="row px-5 mt-3">
           <div style="border-color:rgb(88, 88, 88); border: solid 1.5px ; border-radius: 5px; color:3A4D3A; word-wrap: break-word; height:fit-content;font-size: large;cursor: pointer " class="question_box p-2 d-flex flex-row">
               <div class="col-2 px-2">
                 <div class="like">
-                  like
+                  <a href="/id/upscore" > like </a>
                 </div>
                 <div class="like">
                   {% autoescape off %}
@@ -163,7 +162,7 @@
               {% endautoescape %}
                 </div>
                 <div class="like">
-                  disike
+               <a href="/id/downscore" >  disike </a>
                 </div>
               </div>
             
@@ -202,9 +201,9 @@
               </div>
           </div>
         </div>
-
+        
       </div>
-    {% endfor %}
+      {% endfor %}
     </div>
     <hr style="border: solid 0.75px !important" />
     <div class="row d-flex justify-content-center">

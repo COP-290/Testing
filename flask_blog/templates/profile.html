@@ -21,10 +21,10 @@
                 <a class="nav-link active px-5"style="font-size:20px;color: 3A4D3A !important;" aria-current="page" href="#">About</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link px-5"style="font-size:20px;color: 3A4D3A !important;" href="#">Tag</a>
+                <a class="nav-link px-5"style="font-size:20px;color: 3A4D3A !important;" href="/tag">Tag</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link px-5" style="font-size:20px;color: 3A4D3A !important;"href="#">Question</a>
+                <a class="nav-link px-5" style="font-size:20px;color: 3A4D3A !important;"href="/question">Question</a>
               </li>
             </ul> 
             
@@ -34,10 +34,10 @@
             </form>
             <div class="col-1 user_pp d-flex justify-content-end " style="font-size: larger;color: rgb(88, 88, 88);color: 3A4D3A !important;cursor: pointer;">
                 <div class="d-flex justify-content-center" >
-                  <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+               ,<a href="/user">  <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
                       <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
                       <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-                  </svg>
+                  </svg></a> 
                 </div>
             </div>
           </div>
@@ -61,7 +61,7 @@
         Username : XX YY
       </div>
       <div class="userid d-flex justify-content-center" style="font-size: 35px;">
-        User ID : abcd
+        User ID : {{id}}
       </div>
       <div class="joindate d-flex justify-content-center" style="font-size: 35px;">
         Join Date : DD/MM/YYYY
@@ -112,9 +112,10 @@
         <div class="d-flex justify-content-center mb-3">
           <button type="button" class="btn btn-outline-success">Edit Profile</button>
         </div>
-        <div class="d-flex justify-content-center mb-3">
+      <a href="/pythonlogin/logout"> <div class="d-flex justify-content-center mb-3">
           <button type="button" class="btn btn-outline-danger">Logout</button>
         </div>
+      </a> 
         <div class="d-flex justify-content-center mb-3">
           <button type="button" class="btn btn-outline-danger">Delele Profile</button>
         </div>
