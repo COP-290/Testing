@@ -35,7 +35,7 @@ export default function Signup() {
                 <div class="mb-3 d-flex justify-content-center">
                   Already have an account?
                   <div class="px-1">
-                    <a href="login.html" class="link-primary">click here</a>
+                    <a href="login" class="link-primary">click here</a>
                   </div>
                 </div>
                 <div class="d-flex justify-content-center">

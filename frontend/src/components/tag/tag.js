@@ -4,7 +4,9 @@ import { PaginationControl } from 'react-bootstrap-pagination-control';
 export default function Tag() {
 
     const [page, setPage] = useState(1)
+    const [number, setNumber] = useState(0)
     const [data, setdata] = useState(null);
+
 
     useEffect(() => {
         fetch(`/tag/6/${page}`).then((res) =>
@@ -14,6 +16,15 @@ export default function Tag() {
             })
         );
     }, [page]);
+
+    useEffect(() => {
+        fetch('/tag/number').then((res) =>
+            res.json().then((data) => {
+                console.log(data);
+                setNumber(parseInt(data))
+            })
+        );
+    }, []);  
 
     return (
         <>
@@ -43,7 +54,7 @@ export default function Tag() {
         {data?
             Object.entries(data).map(([key,value])=>
         <div class="tag_col col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 p-3">
-            <div  onclick="window.location.href = `/{{post[1]}}/question`"  class="tag_box_tag p-3">
+            <div  onclick={`window.location.href = /${value[1]}/question` } class="tag_box_tag p-3">
                 <div class="tag_title" style={{"font-family": "'Roboto Mono', monospace"}}>
                     <div >{value[1]}</div> 
                     <a href="{{ url_for('display_question', tag=post) }}"/>
@@ -63,7 +74,7 @@ export default function Tag() {
         <PaginationControl
             page={page}
             between={4}
-            total={250}
+            total={number?number:0}
             limit={6}
             changePage={(page) => {
             setPage(page); 

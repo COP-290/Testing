@@ -38,7 +38,7 @@ export default function Login() {
                 <div class="mb-3 d-flex justify-content-center">
                   Are you new here?
                   <div class="px-1">
-                    <a href="signup.html" class="link-primary">click here</a>
+                    <a href="signup" class="link-primary">click here</a>
                   </div>
                 </div>
                 <div class="d-flex justify-content-center">
