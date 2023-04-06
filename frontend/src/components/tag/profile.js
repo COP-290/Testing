@@ -5,6 +5,15 @@ export default function Profile() {
   const [text,setText] = useState(true)
   const [btn,setBtn] = useState(true)
 
+  function edit_save(props) {
+    const isDisabled = props.isDisabled;
+    return (
+      <>
+        { isDisabled ? "Edit" : "Save" }
+      </>
+    );
+  }
+
   useEffect(() => {
     // document.title = `You clicked ${} times`;
   },[Text]);
@@ -40,7 +49,10 @@ export default function Profile() {
   </div>
 
   <div class="joindate d-flex justify-content-center col-8" style={{"font-size": "35px"}}>
-    <input class="form-control" type="text" placeholder="Join Date : DD/MM/YYYY" aria-label="Disabled input example" disabled></input>
+  <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">Join Date</span>
+        <input type="text" disabled class="form-control" placeholder="DD-MM-YYYY" aria-label="User ID" aria-describedby="basic-addon1"></input>
+    </div>
   </div>
 </div>
 
@@ -55,9 +67,9 @@ export default function Profile() {
   </div>
   <div class="d-flex justify-content-center mt-3">
         <button type="button" class="btn btn-success" onClick={()=>{setText(Text => !Text)}}>
-            {`${Text?"Edit":"Save"}`}
+          {edit_save({isDisabled:text})}
         </button>
-</div>
+  </div>
     
 
 </div>
