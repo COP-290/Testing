@@ -1,0 +1,22 @@
+.body{
+    background-color:E7E4DF;
+}
+.page_title{
+    font-size:xxx-large; color:3A4D3A;
+}
+.sign_up_box{
+    background-color: white !important; 
+    border:solid 1.5px !important;
+    border-color:rgb(201, 201, 201) !important;
+    border-radius:7px;
+    width:400px;
+}
+.sign_up_btn {
+    background-color:3A4D3A;color:E7E4DF;border-color:3A4D3A ;border-radius: 4px;
+}
+.sign_up_btn:hover{
+    background-color:rgb(1, 112, 1);color:E7E4DF;border-color:rgb(1, 112, 1) ;border-radius: 4px;
+}
+.label_title{
+    font-size: large;
+}

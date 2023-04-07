@@ -1,16 +1,25 @@
+import JoditEditor from "jodit-react";
+import { useRef, useState } from "react";
+
+
+
+
 export default function Login() {
+
+    const editor = useRef(null);
+    const [content, setContent] = useState('');
     return (
         <>
         <body>
 
 <div class="row">
   <div class="page_title col-12 d-flex justify-content-center">
-    -: Login :-
+    Login
   </div>
 </div>
 
 <div class="row">
-    <div class="col-12 d-flex justify-content-center mt-5">
+    <div class="col-12 d-flex justify-content-center mt-3">
         <div class="sign_up_box p-3">
             <form>
                 <div class="mb-3 row d-flex flex-column">
@@ -31,10 +40,6 @@ export default function Login() {
                       <input type="password" class="form-control" id="inputPassword"></input>
                     </div>
                   </div>
-                <div class="mb-3 form-check">
-                  <input type="checkbox" class="form-check-input" id="exampleCheck1"></input>
-                  <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                </div>
                 <div class="mb-3 d-flex justify-content-center">
                   Are you new here?
                   <div class="px-1">
@@ -50,7 +55,10 @@ export default function Login() {
     
 </div>
 
+
+{content}
 </body>
+
         </>
 );
 }

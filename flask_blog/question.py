@@ -38,6 +38,8 @@ def questionTag_from_id(id): # list of tag from question id
     conn.close()
     return tag_list
 
+
+
 def question_from_tag(tag,offset):
     Ans=[]
     conn=requestConnection()
@@ -74,8 +76,8 @@ def tag_list_from_listof_id(l,n):
         ans.append(c)
     return ans
 
-
-def question_page(val): # took care when question is less than 3
+# Not able to do unit test for this
+def question_page(val): # took care when question is less than 3 
     conn=requestConnection()
     cursor=requestCursor(conn)
     page, per_page, offset = get_page_args(page_parameter='page',per_page_parameter='per_page')
@@ -88,7 +90,7 @@ def question_page(val): # took care when question is less than 3
     l=cursor.fetchall()
     n=len(l)
     ans=tag_list_from_listof_id(l,n)
-    p=cursor.execute('SELECT count(ID) FROM Question')
+    p=cursor.execute('SELECT count(ID) FROM Question') # This is not giving correct answer why?
     p=cursor.fetchall()
     total = (p[0][0])
     pagination = Pagination(page=page, per_page=per_page, total=total,css_framework='bootstrap5')
@@ -101,6 +103,8 @@ def question_page(val): # took care when question is less than 3
     conn.close()
     return (ans,n,page,3,pagination)
 
+# print(question_page(1))
+
 def showQuestion_byscore_help():
     a=question_page(1)
     return a
@@ -108,7 +112,7 @@ def showQuestion_byscore_help():
 def sort_que_by_time():
     b=question_page(0)
     return b
-
+# print(question_page(1))
 # # print(sort_que_by_time())
 # if __name__=="__main__":
 #     app.run(host='0.0.0.0',debug=True,port=7000)
@@ -133,4 +137,59 @@ def pagefunction(tag='flex'):
     cursor.close()
     conn.close()
     return (l,n,page,3,pagination)
+
+def pagefunction2(page,tag='flex'):
+    conn = requestConnection()
+    cursor = requestCursor(conn)
+    per_page=3
+    offset=(page-1)*per_page
+    l=question_from_tag(tag,offset)
+    tags='"'+tag+'"'
+    p=cursor.execute('SELECT count(id) FROM Tag where tags='+str(tags))
+    p=cursor.fetchall()
+    total = (p[0][0])
+    pagination = Pagination(page=page, per_page=per_page, total=total,css_framework='bootstrap5')
+    n=0
+    if (total)<3*(page):
+        n=total % 3
+    else:
+        n=3
+    cursor.close()
+    conn.close()
+    return l
+
+def pagefunction_number(tag='flex'):
+    conn = requestConnection()
+    cursor = requestCursor(conn)
+    per_page=3
+    page = 1
+    offset=(page-1)*per_page
+    l=question_from_tag(tag,offset)
+    tags='"'+tag+'"'
+    p=cursor.execute('SELECT count(id) FROM Tag where tags='+str(tags))
+    p=cursor.fetchall()
+    total = (p[0][0])
+    pagination = Pagination(page=page, per_page=per_page, total=total,css_framework='bootstrap5')
+    n=0
+    if (total)<3*(page):
+        n=total % 3
+    else:
+        n=3
+    cursor.close()
+    conn.close()
+    return total
+
+# print(pagefunction('flex'))
+
+
+# def search_question(search):
+#     conn = requestConnection()
+#     cursor = requestCursor(conn)
+#     # search = request.form['search']
+#     search  = '"' + search + '"'
+#     cursor.execute("SELECT * from Question WHERE Body LIKE " + (search))
+#     M = cursor.fetchall()
+#     print(M)
+
+# print(search_question("SQL"))
     

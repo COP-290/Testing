@@ -3,16 +3,14 @@ export default function Signup() {
         <>
         <body>
 
-
-
 <div class="row">
   <div class="page_title col-12 d-flex justify-content-center">
-    -: Sign up :-
+    Sign up
   </div>
 </div>
 
 <div class="row">
-    <div class="col-12 d-flex justify-content-center mt-5">
+    <div class="col-12 d-flex justify-content-center mt-3">
         <div class="sign_up_box p-3">
             <form>
                 <div class="mb-3">

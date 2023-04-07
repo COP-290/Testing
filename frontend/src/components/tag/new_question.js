@@ -1,4 +1,9 @@
+import JoditEditor from "jodit-react";
+import { useRef, useState } from "react";
+
 export default function New_ques() {
+    const editor = useRef(null);
+    const [content,setContent] = useState('');
     return (
         <>
         <body>
@@ -10,25 +15,49 @@ export default function New_ques() {
 
     <form class="row mx-5 my-4" method="POST" action="/ask/question">
 
-      <div class="input-group mb-3">
-        <span class="input-group-text" id="title">Title</span>
-        <input id="title" name="title" type="text" class="form-control q_title" placeholder="Enter the title.." aria-label="Title" aria-describedby="basic-addon1" required></input>
-      </div>
+    <div class="title d-flex justify-content-center col-12" style={{"font-size": "35px"}}>
+    <div class="input-group mb-3" >
+        <span class="d-flex justify-content-center input-group-text new_question_span" id="basic-addon1">Title</span>
+        <input type="text" class="form-control"  placeholder="Enter title.." aria-label="Title" aria-describedby="basic-addon1"></input>
+    </div>
+  </div>
 
-      <div class="input-group">
-        <span class="input-group-text">Body</span>
-        <textarea name="content" class="form-control q_body" aria-label="Body" placeholder="Write the question body.."></textarea>
-      </div>
+  <div class="col-12">
+  <div class="d-flex justify-content-start ">
+        <span class="d-flex justify-content-center input-group-text new_question_span">Body</span>
 
-      <div class="input-group mt-3">
-        <span class="input-group-text" id="basic-addon1">Tag</span>
-        <input name="tag" type="text" class="form-control q_tag" placeholder="Enter tags.." aria-label="Tags" aria-describedby="basic-addon1"></input>
+        <div class="q_title">
+        <JoditEditor
+        
+			ref={editor}
+			value={content}
+			onBlur={newContent => setContent(newContent)} // preferred to use only this option to update the content for performance reasons
+      onChange={newcontent=>{}}
+      
+    />
+        </div>
       </div>
+  </div>
+      
+  
 
-      <div class="d-flex justify-content-center">
-        <div class="col-3 d-flex justify-content-center column-gap-1">
-          <button type="submit" class="btn btn-outline-primary">Submit</button>
-          <button type="button" class="btn btn-outline-danger">Cancel</button>
+      
+
+      <div class="tag d-flex justify-content-center col-12" style={{"font-size": "35px"}}>
+    <div class="input-group my-3" >
+        <span class="d-flex justify-content-center input-group-text new_question_span" id="basic-addon1">Tag</span>
+        <input type="text" class="form-control"  placeholder="Enter tags.." aria-label="Tag" aria-describedby="basic-addon1"></input>
+    </div>
+  </div>
+
+      <div class="d-flex justify-content-center ">
+        <div class="col-4 d-flex justify-content-center column-gap-1">
+          <div class="px-1">
+            <button type="submit" class="p-1 btn btn-outline-primary">Submit</button>
+          </div>
+          <div class="px-1">
+            <button type="button" class="p-1 btn btn-outline-danger">Cancel</button>
+          </div>
         </div>
       </div>
 

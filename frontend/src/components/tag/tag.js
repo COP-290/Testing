@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { PaginationControl } from 'react-bootstrap-pagination-control';
+import { useNavigate } from "react-router-dom";
 
 export default function Tag() {
 
@@ -7,6 +8,15 @@ export default function Tag() {
     const [number, setNumber] = useState(0)
     const [data, setdata] = useState(null);
 
+    let navigate = useNavigate();
+    const to = async (id) => {
+      let path = `/${id}`;
+      navigate(path);
+    //   await scroller.scrollTo("head", {
+    //     duration: 1500,
+    //     offset: 0,
+    //   });
+    };
 
     useEffect(() => {
         fetch(`/tag/6/${page}`).then((res) =>
@@ -37,8 +47,8 @@ export default function Tag() {
     </div>
     <div class="d-flex justify-content-center">
         <div class="col-4 px-3 py-2">
-            <form action="/action_page.php" style={{"border":"solid 1.5px", "border-radius":"7px"}}>
-                <input style={{"background-color": "#E7E4DF"}}class="form-control" list="tags" name="tag" id="tag" placeholder="Search"></input>
+            <form action="/action_page.php" style={{ "border-radius":"7px"}}>
+                <input class="form-control" list="tags" name="tag" id="tag" placeholder="Search the filter.."></input>
                 <datalist id="tags">
                   <option value="Python"/>
                   <option value="JavaScript"/>
@@ -54,7 +64,7 @@ export default function Tag() {
         {data?
             Object.entries(data).map(([key,value])=>
         <div class="tag_col col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 p-3">
-            <div  onclick={`window.location.href = /${value[1]}/question` } class="tag_box_tag p-3">
+            <div class="tag_box_tag p-3" onClick={()=>{to(`tag/${value[1]}`)}}>
                 <div class="tag_title" style={{"font-family": "'Roboto Mono', monospace"}}>
                     <div >{value[1]}</div> 
                     <a href="{{ url_for('display_question', tag=post) }}"/>
@@ -63,14 +73,14 @@ export default function Tag() {
                 <div class="tag_body" style={{" color": "rgb(88, 88, 88)"}} > 
                     Python is a multi-paradigm, dynamically typed, multi-purpose programming language.
                 </div>
-                <div class="tag_questions d-flex justify-content-end " style={{"color": "rgb(88, 88, 88)"}}>
+                <div class="tag_questions d-flex justify-content-end ">
                     {value[0]} questions
                 </div>
             </div>
         </div>    
         ):<></>}
     </div> 
-    <div class="d-flex justify-content-center" >
+    <div class="pagination d-flex justify-content-center" >
         <PaginationControl
             page={page}
             between={4}

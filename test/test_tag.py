@@ -9,13 +9,15 @@ mydb = MySQLdb.connect(
     db='testing')
 
 cursor = mydb.cursor()
-
+List = []
 with open("tag.csv", 'r') as file:
   csvreader = list(csv.reader(file))
-  for row in csvreader[1:100]:
+  for row in csvreader[1:11]:
     r = list(row)
-    cursor.execute('INSERT INTO Tag (tags,ID) VALUES("%s", "%s")',((r[1]),int(r[0])))
-
+    cursor.execute('INSERT INTO TAG (tag,ID) VALUES("%s", "%s")',((r[1]),int(r[0],)))
+    List.append((int(r[0],r[1])))
+# sql1 =  DROP TABLE IF EXISTS Tag; 
+# sql2 = CREATE TABLE TAG (ID int,tag varchar(80));
 
 mydb.commit()
 cursor.close()
@@ -28,4 +30,12 @@ print(get_tags())
 class TestTags(unittest.TestCase):
     def test_tags(self):
         x = get_tags()
-        self.assertEqual(([(5, 'Java'), (4, 'Python'), (3, 'C++'), (2, 'MySQL'), (1, 'JavaScript')], 5),x)
+        print(x)
+        print(List)
+        self.assertEqual((List, 6),x)
+
+
+sql1 =  "DROP TABLE IF EXISTS Tag;" 
+sql2 = "CREATE TABLE TAG (ID int,tag varchar(80));"
+cursor.execute(sql1)
+cursor.execute(sql2)

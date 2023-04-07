@@ -23,7 +23,7 @@ export default function Profile() {
         <body>
         <div class="d-flex flex-column justify-content-center mt-3">
 
-<div class="row user_pp d-flex justify-content-center ">
+<div class="row user_pp_profile d-flex justify-content-center ">
   <div class="d-flex justify-content-center" >
     <svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
         <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
@@ -36,32 +36,52 @@ export default function Profile() {
 
   <div class="username d-flex justify-content-center col-8" style={{"font-size": "35px"}}>
     <div class="input-group mb-3" >
-        <span class="input-group-text" id="basic-addon1">Username</span>
+        <span class="input-group-text profile_span" id="basic-addon1">Username</span>
         <input type="text" disabled={text} class="form-control"  placeholder="Username" aria-label="Username" aria-describedby="basic-addon1"></input>
     </div>
   </div>
 
   <div class="user ID d-flex justify-content-center col-8" style={{"font-size": "35px"}}>
     <div class="input-group mb-3">
-        <span class="input-group-text" id="basic-addon1">User ID</span>
+        <span class="input-group-text profile_span" id="basic-addon1">User ID</span>
         <input type="text" disabled={text} class="form-control" placeholder="User ID" aria-label="User ID" aria-describedby="basic-addon1"></input>
     </div>
   </div>
 
   <div class="joindate d-flex justify-content-center col-8" style={{"font-size": "35px"}}>
   <div class="input-group mb-3">
-        <span class="input-group-text" id="basic-addon1">Join Date</span>
+        <span class="input-group-text profile_span" id="basic-addon1">Join Date</span>
         <input type="text" disabled class="form-control" placeholder="DD-MM-YYYY" aria-label="User ID" aria-describedby="basic-addon1"></input>
     </div>
   </div>
-</div>
 
+
+<div class="Reputation d-flex justify-content-center col-8" style={{"font-size": "35px"}}>
+    <div class="input-group mb-3">
+        <span class="input-group-text profile_span" id="basic-addon1">Reputation</span>
+        <input type="text" disabled class="form-control" placeholder="Reputation" aria-label="Reputation" aria-describedby="basic-addon1"></input>
+    </div>
+  </div>
+
+  <div class="Up Vote d-flex justify-content-center col-8" style={{"font-size": "35px"}}>
+    <div class="input-group mb-3">
+        <span class="input-group-text profile_span" id="basic-addon1">Up Vote</span>
+        <input type="text" disabled class="form-control" placeholder="Up Vote" aria-label="Up Vote" aria-describedby="basic-addon1"></input>
+    </div>
+  </div>
+  <div class="Down Vote d-flex justify-content-center col-8" style={{"font-size": "35px"}}>
+    <div class="input-group mb-3">
+        <span class="input-group-text profile_span" id="basic-addon1">Down Vote</span>
+        <input type="text" disabled={text} class="form-control" placeholder="Down Vote" aria-label="Down Vote" aria-describedby="basic-addon1"></input>
+    </div>
+  </div>
+</div>
 <hr/>
 
 <div class="aboutme_row row d-flex justify-content-center">
   <div class="col-8">
     <div class="input-group">
-      <span class="input-group-text">About me</span>
+      <span class="input-group-text profile_span">About me</span>
       <textarea disabled={text} name="content" class="form-control q_body" aria-label="Body" placeholder="Write something about yorself.."></textarea>
     </div>
   </div>
@@ -72,20 +92,6 @@ export default function Profile() {
   </div>
     
 
-</div>
-
-<hr/>
-
-<div class="activity_row row">
-  <div class="username d-flex justify-content-center" style={{"font-size": "26px;"}}>
-    Reputation : 
-  </div>
-  <div class="userid d-flex justify-content-center" style={{"font-size": "26px;"}}>
-    Up vote :
-  </div>
-  <div class="joindate d-flex justify-content-center" style={{"font-size": "26px;"}}>
-    Down vote :
-  </div>
 </div>
 
 <hr/>

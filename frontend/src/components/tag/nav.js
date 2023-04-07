@@ -4,26 +4,26 @@ export default function Navbar() {
 
 <nav class="navbar navbar-expand-lg navbar-light ">
         <div class="container-fluid" >
-          <a class="navbar-brand px-5"  href="#">askQ</a>
+          <a class="navbar-brand site_icon px-5"  href="/" style={{"fontSize":"50px"}}>askQ</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav_active nav-link active px-5" aria-current="page" href="#">About</a>
+                <a class="nav_active nav-link active px-5" aria-current="page" href="about">About</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link px-5" href="#">Tag</a>
+                <a class="nav-link px-5" href="tag">Tag</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link px-5" href="#">Question</a>
+                <a class="nav-link px-5" href="question">Question</a>
               </li>
             </ul> 
             
             <form class="d-flex pt-3">
               <input class="form-control me-2" type="search" placeholder="Search..." aria-label="Search"></input>
-              <button type="nav_search_btn button" class="btn btn-success">Search</button>
+              <button type="button" class="nav_search_btn btn btn-success">Search</button>
             </form>
             <div class="col-1 user_ppp d-flex justify-content-end " >
                 <div class="d-flex justify-content-center" >
