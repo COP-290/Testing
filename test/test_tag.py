@@ -20,7 +20,7 @@ cursor.close()
 # print ("Done")
 
 
-from .flask_blog/tag import get_tags, get_tags_list
+from .flask_blog.tag import get_tags, get_tags_list
 # print(get_tags())
 
 class TestTags(unittest.TestCase):
