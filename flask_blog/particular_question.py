@@ -156,5 +156,9 @@ def particular_question():
     m=len(ans_list)
     return render_template('particular_question.html',l=l,n=n,ans_list=ans_list,m=m)
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0',debug=True,port=7015)
+print(particular_que_from_id(90))
+print(answer_from_parent_id(90))
+print(score_question(0,90))
+print(score_answer(0,92))
+print(sort_ans_by_time(90,1))
+print(put_answer(90,""))
