@@ -26,7 +26,7 @@ a11=1
 a12=5
 a13=[[(90, 66, datetime.datetime(2007, 8, 1, 14, 45, 37), 98, 'SQL', 'Its body is about SQL'), ['Python']]]
 
-from question import question_from_tag, questionTag_from_id, tag_list_from_listof_id,question_page,question_page2,showQuestion_byscore_help,sort_que_by_time,sort_que_by_time_number,pagefunction,pagefunction2,pagefunction_number,pagefunction_number_all,sort_quesbyTag
+from flask_blog.question import question_from_tag, questionTag_from_id, tag_list_from_listof_id,question_page,question_page2,showQuestion_byscore_help,sort_que_by_time,sort_que_by_time_number,pagefunction,pagefunction2,pagefunction_number,pagefunction_number_all,sort_quesbyTag
 
 class TestQuestion(unittest.TestCase):
     def test_question_from_tag(self):
