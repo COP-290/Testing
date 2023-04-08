@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, url_for, flash, redirect
 from werkzeug.exceptions import abort
 from flask_paginate import Pagination, get_page_args
 import MySQLdb
+import datetime
 app=Flask(__name__)
 
 def requestConnection():
