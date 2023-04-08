@@ -20,7 +20,7 @@ cursor.close()
 # print ("Done")
 
 
-from flask_blog/tag import get_tags, get_tags_list
+from .flask_blog/tag import get_tags, get_tags_list
 # print(get_tags())
 
 class TestTags(unittest.TestCase):
@@ -30,9 +30,9 @@ class TestTags(unittest.TestCase):
         # print(List)
         self.assertEqual((List),x)
 
-    #def test_get_tags_list(self):
-     #   x = get_tags_list()
-      #  self.assertEqual((get_tags_list_answer),x)
+    def test_get_tags_list(self):
+        x = get_tags_list()
+        self.assertEqual((get_tags_list_answer),x)
 
 
 # sql1 =  "DROP TABLE IF EXISTS Tag;" 
