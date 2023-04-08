@@ -73,6 +73,7 @@ function App() {
             <Route path="/particular_question" element={<Par_ques/>} />        
             <Route path="/particular_test" element={<Par_test/>} />        
             <Route path="/new_question" element={<New_ques/>} />        
+            <Route path="/question/:id" element={<Par_ques/>} />        
             <Route path="/question" element={<Question/>} />        
             <Route path="/profile" element={<Profile/>} />        
             <Route path="/login" element={<Login/>} />        

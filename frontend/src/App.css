@@ -143,6 +143,9 @@
 .question_box:hover .vav{
     color:#E7E4DF!important;
 }
+.user_p{
+    color:#E7E4DF !important;
+}
 .vav {
     border-radius: 4px;
 }
@@ -168,9 +171,12 @@
     background-color:#E7E4DF !important;
     border-radius:6px;
 }
+a{
+    text-decoration: none;
+}
 .tag_box_par{
-    row-gap:20px;
-    column-gap:1px !important;
+    row-gap:15px;
+    column-gap:4px !important;
 }
 /* Navbar */
 
@@ -181,8 +187,11 @@
     color: #E7E4DF;
 }
 .site_icon:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
     transition: transform 0.25s ease-in-out;
+    background-color: #3A4D3A;
+    color: #E7E4DF !important;
+    border-radius: 10px;
 }
 .nav-pills .active{
     background-color: #3A4D3A !important;
@@ -212,6 +221,11 @@
     background-color:#3A4D3A;
     color:#E7E4DF;border-color:#3A4D3A ;border-radius: 4px;
 }
+.active, .nav_link{
+    background-color: #3A4D3A;
+    color: #E7E4DF;
+    scale: 1.05;
+}
 .user_ppp{
     font-size: larger;color: #3A4D3A !important;cursor: pointer;
 }
@@ -239,7 +253,11 @@
     font-size:xxx-large; color:#3A4D3A;
 }
 .ask_btn{
-    color:#E7E4DF;border-color: #3A4D3A ;font-size: large; background-color: #3A4D3A;height: fit-content;
+    color:#E7E4DF !important;
+    border-color: #3A4D3A ;
+    font-size: large; 
+    background-color: #3A4D3A;
+    height: fit-content;
 }
 .answer_title{
     font-size:x-large; color:#3A4D3A;cursor: pointer;
@@ -292,6 +310,9 @@ body,html {
     background-color:#E7E4DF !important;
     
 }
+.active, .page_link{
+    background-color:#E7E4DF;
+}
 .tag_box_tag:hover{
     transform: scale(1.02);
     transition: transform 0.25s ease-in-out;
@@ -310,10 +331,15 @@ body,html {
     background-color:  #3A4D3A !important;
     border-color: #3A4D3A !important;
 }
-
+.pagination{
+    column-gap: 1px;
+}
 .active .page-link:hover{
     background-color:  #3A4D3A !important;
     color: white;
+}
+.disabled .page_item{
+    background-color: #3A4D3A;
 }
 .page-link{
     color:#3A4D3A !important;
@@ -358,4 +384,48 @@ body,html {
     border-radius: 5px;
     margin-left: 5px !important;
 }
+.question_title{
+    font-size: 35px;
+}
 
+
+/* -------------------------------------------------- */
+/*   
+  .tagsList {
+    display: inline;
+    padding: 0px;
+    margin: 0px;
+    margin-right: 5px;
+    
+    li {
+      font-size: 11pt;
+      display: inline-block;
+      margin: 3px;
+      padding: 3px 5px 3px 5px;
+      border-radius: 4px;
+      background: #ddd;
+      color: #444;
+      
+      &.clickable:hover {
+        background: #aaa;
+        cursor: pointer;
+        color: black;
+      }
+      
+      a {
+        text-decoration: none;
+        color: #ff5569;
+        color: #666;
+        margin-left: 5px;
+        &:hover {
+          color: #dd3345;
+        }
+  
+        padding: 0px 2px 0px 2px;
+      }
+    }
+  }
+  
+  
+  
+   */

@@ -8,17 +8,30 @@ export default function Question() {
 
   const [data,setdata] = useState(null);
   const [page, setPage] = useState(1)
-  const [sortby,setSortby] = useState(null);
+  const [sortby,setSortby] = useState('');
   const [number, setNumber] = useState(0)
   const { id } = useParams(); 
   console.log(id);
+
+  let navigate = useNavigate();
+  const to = async (id) => {
+    let path = `/${id}`;
+    navigate(path);
+  //   await scroller.scrollTo("head", {
+  //     duration: 1500,
+  //     offset: 0,
+  //   });
+  };
 
   useEffect(() => {
     hljs.highlightAll();
   });
 
+  
+
   useEffect(() => {
-    fetch(id?`/${id}/${page}/question`:'/question').then((res) =>
+    console.log(sortby)
+    fetch(id?`/${id}/${page}${sortby}/question`:`${sortby}/question`).then((res) =>
         res.json().then((data) => {
             console.log(data);
             setdata(data)
@@ -45,12 +58,13 @@ useEffect(() => {
 <div class="row">
 
 <div class="page_title p-1 d-flex justify-content-center">
-    -: Questions :-
+    Questions
 </div>
 
+
 <div class ="col-12 px-4 d-flex justify-content-end">
-  <button type="button" class="ask_btn btn btn-success">
-    <a href="/new_question">Ask question</a>
+  <button type="button" class="btn btn-success">
+    <a class="ask_btn "href="/new_question">Ask question</a>
   </button>
 </div>
 
@@ -60,9 +74,9 @@ useEffect(() => {
       Sorting
     </button>
     <ul class="dropdown-menu">
-      <li><a class="dropdown-item" onClick={()=>setSortby('/time')}>Newest</a></li>
+      <li><a class="dropdown-item" onClick={()=>setSortby('')}>Newest</a></li>
       <li><a class="dropdown-item" href="#">Active</a></li>
-      <li><a class="dropdown-item" href="/score/question">Score</a></li>
+      <li><a class="dropdown-item" onClick={()=>setSortby('/score')}>Score</a></li>
     </ul>
   </div>
 </div>
@@ -91,25 +105,23 @@ useEffect(() => {
     <div class="question_box p-3">
         <div class="container">
           <div class="row mx-lg-n5">
-            <div class="vav col-xl-2 col-lg-2 col-md-4 col-sm-4 col-4 d-flex justify-content-center" >0 votes</div>
+            <div class="vav col-xl-2 col-lg-2 col-md-4 col-sm-4 col-4 d-flex justify-content-center" >{value[0][3]} votes</div>
             <div class="vav col-xl-2 col-lg-2 col-md-4 col-sm-4 col-4 d-flex justify-content-center" >0 answer</div>
             <div class="vav col-xl-2 col-lg-2 col-md-4 col-sm-4 col-4 d-flex justify-content-center" >0 views</div>
           </div>
         </div>
-        <div class="question" style={{"font-style": "italic","font-size": "larger", "font-weight": "bold"}}>
+        <hr/>
+        <a class="question" style={{"font-size": "larger", "font-weight": "bold","cursor":"pointer"}}  onClick={()=>{to(`question/${value[0][0]}`)}}>
             {/* 1<a href="/{{l[i][0][0]}}/answer "> */}
 
           {value[0][4]}
 
 
-        </div>
+        </a>
         <div class="answer" style={{" font-size": "larger","color": "rgb(88, 88, 88);" }}> 
-          
- 
-        {/* <Highlight innerHTML={true}>{ */}
+
 
             <div dangerouslySetInnerHTML={{__html:value[0][5]}} />
-        {/* }</Highlight> */}
 
 
         </div>
@@ -119,7 +131,7 @@ useEffect(() => {
             {value[1]?  Object.entries(value[1]).map(([key,val])=>
             <div class="  justify-content-start">
 
-              <a class="num_button py-2 my-5 px-3" href="/{{j}}/question">
+              <a class="num_button py-2 my-5 px-3" href={`/tag/${val}`} style={{"zIndex":"99"}}>
                 {val}
               </a> 
               </div>
@@ -129,15 +141,24 @@ useEffect(() => {
           </div>
         </div>
 
-        <div class="col-12 user_ppp d-flex justify-content-end ">
+        <div class="col-12 user_ppp d-flex justify-content-end">
             <div class="d-flex justify-content-center">
               <svg xmlns="http://www.w3.org/2000/svg" style={{"color":"E7E4DF"}} width="50" height="50" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
                   <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
                   <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
               </svg>
             </div>
+
         </div>
 
+        <div class="col-12 user_ppp d-flex justify-content-end pt-2">
+          <div class="d-flex justify-content-center">
+            <div style={{"color":"white"}}>
+              {value[0][2]}
+            </div>
+          </div>
+
+        </div>
     </div>  
   </div>  
 )

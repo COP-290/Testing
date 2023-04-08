@@ -1,5 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { PaginationControl } from 'react-bootstrap-pagination-control';
+// import React from 'react';
+import AsyncSelect from 'react-select/async';
+import Select from 'react-select';
+
+// import { colourOptions } from '../data';
+
+// export default () => (
+    const colourOptions = [
+        { value: 'chocolate', label: 'Chocolate' },
+        { value: 'strawberry', label: 'Strawberry' },
+        { value: 'vanilla', label: 'Vanilla' }
+      ]
+// );
 
 export default function Tag() {
     
@@ -57,6 +70,16 @@ export default function Tag() {
             Object.entries(data).map(([key,value])=>value)
             
             :<></>}
+
+
+<Select
+    defaultValue={[colourOptions[2], colourOptions[3]]}
+    isMulti
+    name="colors"
+    options={colourOptions}
+    className="basic-multi-select"
+    classNamePrefix="select"
+  />
 
             <PaginationControl
                 page={page}

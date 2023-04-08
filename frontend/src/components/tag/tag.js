@@ -46,7 +46,7 @@ export default function Tag() {
         A tag is a label that categorizes your question with other, similar questions. Using the right tags makes it easier for others to find and answer your question.
     </div>
     <div class="d-flex justify-content-center">
-        <div class="col-4 px-3 py-2">
+        <div class="col-7 px-3 py-2">
             <form action="/action_page.php" style={{ "border-radius":"7px"}}>
                 <input class="form-control" list="tags" name="tag" id="tag" placeholder="Search the filter.."></input>
                 <datalist id="tags">
@@ -80,10 +80,10 @@ export default function Tag() {
         </div>    
         ):<></>}
     </div> 
-    <div class="pagination d-flex justify-content-center" >
+    <div class="pagination col-12 d-flex justify-content-center" >
         <PaginationControl
             page={page}
-            between={4}
+            between={3}
             total={number?number:0}
             limit={6}
             changePage={(page) => {

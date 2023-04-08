@@ -2,6 +2,7 @@ import { useEffect,useState,useRef } from "react";
 import "highlight.js/styles/github.css";
 import hljs from "highlight.js";
 import JoditEditor from "jodit-react";
+import { useNavigate, useParams } from "react-router-dom";
 
 export default function Par_ques() {
 
@@ -9,6 +10,7 @@ export default function Par_ques() {
   const [content,setContent] = useState('');
   const [data,setdata] = useState(0);
   const [ans,setans] = useState(0);
+  const { id } = useParams(); 
 
   useEffect(()=>{
     hljs.highlightAll();
@@ -16,14 +18,14 @@ export default function Par_ques() {
 
   useEffect(() => {
     
-    fetch(`/80/answer`).then((res) =>
+    fetch(`/${id}/answer`).then((res) =>
     res.json().then((data) => {
       // console.log(data);
       setdata(data)
     })
     );
     
-    fetch(`/80/answers`).then((res) =>
+    fetch(`/${id}/answers`).then((res) =>
     res.json().then((data) => {
       // console.log(data);
       setans(data)
@@ -32,16 +34,34 @@ export default function Par_ques() {
 
 },[]);
 
+function api(id,Answer){
+  fetch(`/${id}/new_ans`, {
+      method: 'POST',
+      body: JSON.stringify({
+        'Answer':Answer,
+      }),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      }
+      })
+      .then(function(response){ 
+      return response.json()})
+      .then(function(data)
+      {console.log(data)
+    }).catch(error => console.error('Error:', error)); 
+
+}
+
     return (
         <>
         <body >
 
   <div class="row d-flex flex-row">
       <div class="row">
-          <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 px-5 d-flex justify-content-start">
+          <div class="question_title col-xl-9 col-lg-9 col-md-9 col-sm-12 col-12 px-5 d-flex justify-content-start">
               {data?data[0][4]:""}
           </div>
-          <div class ="col-xl-3 col-lg-3 col-md-3 col-sm-12 px-4 py-2 d-flex justify-content-end">
+          <div class ="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12 px-4 py-2 d-flex justify-content-end">
               <button type="button" class=" ask_btn btn btn-success">
                 Ask question
               </button>
@@ -76,12 +96,7 @@ export default function Par_ques() {
                 <div class="d-flex tag_box_par flex-row flex-wrap justify-content-start px-3">
                     {data[1]?  Object.entries(data[1]).map(([key,value])=>
                     <>
-                        <div class=" justify-content-center px-3">
-                        <a class="num_button py-2 px-3" >
-                          {value[0]}
-                        </a>
-                      </div>
-                      <div class=" justify-content-center px-3">
+                        <div class=" justify-content-center">
                         <a class="num_button py-2 px-3" >
                           {value[0]}
                         </a>
@@ -171,7 +186,7 @@ export default function Par_ques() {
                 </div>
                 <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-10 px-2 d-flex justify-content-center">
                   <div class="answer_title_par col-11 p-1 d-flex justify-content-center flex-column" style ={{"font-size":"x-large", "color":"3A4D3A","cursor": "pointer"}}>
-                    {data?<div dangerouslySetInnerHTML={{__html:value[5]}} />:<></>}
+                    {data?<div dangerouslySetInnerHTML={{__html:value[5].substring(1, value[5].length-1)}} />:<></>}
                   </div>
                 </div>
               </div>
@@ -219,12 +234,13 @@ export default function Par_ques() {
         <span class="input-group-text d-flex justify-content-center par_question_span_body">Answer</span>
 
         <div class="q_title">
+
         <JoditEditor
         
 			ref={editor}
 			value={content}
-			onBlur={newContent => setContent(newContent)} // preferred to use only this option to update the content for performance reasons
-      onChange={newcontent=>{}}
+			onBlur={newContent => {setContent(newContent)}} // preferred to use only this option to update the content for performance reasons
+      // onChange={newcontent=>{console.log(newcontent)}}
       
     />
         </div>
@@ -233,7 +249,7 @@ export default function Par_ques() {
       <div class="d-flex justify-content-center ">
         <div class="col-4 d-flex justify-content-center column-gap-1">
           <div class="px-1">
-            <button type="submit" class="p-1 btn btn-outline-primary">Submit</button>
+            <button type="submit" class="p-1 btn btn-outline-primary" onClick={()=>{api(data[0][0],content)}}>Submit</button>
           </div>
           <div class="px-1">
             <button type="button" class="p-1 btn btn-outline-danger">Cancel</button>
