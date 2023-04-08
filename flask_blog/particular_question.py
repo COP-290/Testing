@@ -52,7 +52,7 @@ def particular_que_from_id(id):
     conn.close()
     return a
 # print(answer_from_id())
-# print(particular_que_from_id(80))
+# print(particular_que_from_id(330))
 
 def answer_from_parent_id(id):
     conn = requestConnection()
@@ -64,6 +64,7 @@ def answer_from_parent_id(id):
         Answer_list.append(l[k])
     return Answer_list
 
+# print(answer_from_parent_id(80))
 def score_question(Up,id):
         conn = requestConnection()
         cursor = requestCursor(conn)
@@ -86,6 +87,7 @@ def score_question(Up,id):
         ans_list=answer_from_parent_id(id)
         m=len(ans_list)
         return l,n,ans_list,m 
+# print(score_question(0,80))
 
 def score_answer(Up,id):
         conn = requestConnection()
@@ -111,6 +113,7 @@ def score_answer(Up,id):
         cursor.close()
         conn.close()
         return l,n,ans_list,m 
+# print(score_answer(0,92))
 
 def sort_ans_by_time(id,time):
     conn = requestConnection()
@@ -129,36 +132,42 @@ def sort_ans_by_time(id,time):
     cursor.close()
     conn.close()
     return l,n,Answer_list,m 
-
+# print(sort_ans_by_time(80,1))
 def put_answer(id,body):
 # def put_answer(id,ownerid,body):
-    conn = requestConnection()
-    cursor = requestCursor(conn)
-    l=particular_que_from_id(id)
-    n=1 
-    # cursor.execute('insert into Answer (Owner_User_Id,Parent_ID,Score,Body) Values ("%s","%s","%s","%s")',(ownerid,id,0,body))
-    cursor.execute('insert into Answer (Parent_ID,Score,Body) Values ("%s","%s","%s")',(id,0,body))
-    conn.commit()
-    cursor.close()
-    conn.close()
-    ans_list=answer_from_parent_id(id)
-    m=len(ans_list)
-    return l,n,ans_list,m 
-
+    if body!="":
+        conn = requestConnection()
+        cursor = requestCursor(conn)
+        l=particular_que_from_id(id)
+        n=1 
+        # cursor.execute('insert into Answer (Owner_User_Id,Parent_ID,Score,Body) Values ("%s","%s","%s","%s")',(ownerid,id,0,body))
+        cursor.execute('insert into Answer (Parent_ID,Score,Body) Values ("%s","%s","%s")',(id,0,body))
+        conn.commit()
+        cursor.close()
+        conn.close()
+        ans_list=answer_from_parent_id(id)
+        m=len(ans_list)
+        return l,n,ans_list,m 
+    else:
+        l=particular_que_from_id(id)
+        n=1 
+        ans_list=answer_from_parent_id(id)
+        m=len(ans_list)
+        return l,n,ans_list,m 
+# print(put_answer(80,""))
 
 # print(answer_from_parent_id(80))
-@app.route('/')
-def particular_question():
-    l=particular_que_from_id(80)
-    n=1
-    ans_list=answer_from_parent_id(80)
-    # print(ans_list)
-    m=len(ans_list)
-    return render_template('particular_question.html',l=l,n=n,ans_list=ans_list,m=m)
+# @app.route('/')
+# def particular_question():
+#     l=particular_que_from_id(80)
+#     n=1
+#     ans_list=answer_from_parent_id(80)
+#     # print(ans_list)
+#     m=len(ans_list)
+#     return render_template('particular_question.html',l=l,n=n,ans_list=ans_list,m=m)
 
-print(particular_que_from_id(90))
-print(answer_from_parent_id(90))
-print(score_question(0,90))
-print(score_answer(0,92))
-print(sort_ans_by_time(90,1))
-print(put_answer(90,""))
+# if __name__ == '__main__':
+#     app.run(host='0.0.0.0',debug=True,port=7015)
+# print(answer_from_parent_id(90))
+# print(score_question(0,90))
+# print(put_answer(90,""))
