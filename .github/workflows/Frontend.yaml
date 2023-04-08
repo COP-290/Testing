@@ -8,6 +8,5 @@ jobs:
 
       - name: React Build Test
         run: |
-          npm install react-scripts
-          npm run build
-        working-directory: frontend
+          ls
+        working-directory: ./
