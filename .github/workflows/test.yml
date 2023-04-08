@@ -50,5 +50,5 @@ jobs:
         run: |
           python -m coverage run -m unittest
           python -m coverage report
-          python flask_blog/particular_question.py
+          #python flask_blog/particular_question.py
         working-directory: ./
