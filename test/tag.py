@@ -1,76 +1,35 @@
+import unittest
+import csv
 import MySQLdb
-from collections import defaultdict
-def requestConnection():
-    mydb = MySQLdb.connect(host='localhost',
+
+mydb = MySQLdb.connect(
+    host='localhost',
     user='root',
     passwd='root',
-    db='test')
-    return mydb
+    db='testing')
 
-def requestCursor(conn):
-    return conn.cursor()
+cursor = mydb.cursor()
+# List = []
+# with open("tag.csv", 'r') as file:
+#   csvreader = list(csv.reader(file))
+#   for row in csvreader[1:11]:
+#     r = list(row)
+#     cursor.execute('INSERT INTO TAG (tag,ID) VALUES("%s", "%s")',((r[1]),int(r[0],)))
+#     List.append((int(r[0],r[1])))
+# # sql1 =  DROP TABLE IF EXISTS Tag; 
+# # sql2 = CREATE TABLE TAG (ID int,tag varchar(80));
 
-# def sort_tag_by_frequency():
-#     conn = requestConnection()
-#     cursor = requestCursor(conn)
-#     l = cursor.execute('SELECT tags FROM Tag')
-#     l = cursor.fetchall()
-#     tag_list = []
-#     d = defaultdict(lambda:0)
-#     for k in range(0,len(l)):
-#         a=l[k][0]
-#         b=len(a)
-#         c=a[1:b-1]
-#         tag_list.append(c)
-#     for tag in tag_list:
-#         d[tag] += 1
-#     Sort = []         # List store (frequency , tag)
-#     for i in d:
-#         Sort.append((d[i],i))
-#     Sort.sort(reverse = True)
-#     Answer_list_tag = []
-#     for i in Sort:
-#         Answer_list_tag.append(i[1])
-#     return Sort
-
-# def get_tags(offset=0,per_page=5):
-#     p=sort_tag_by_frequency()
-#     n=len(p)
-#     # print(offset,per_page)
-#     # conn = requestConnection()
-#     # cursor=requestCursor(conn)
-#     # l=cursor.execute('SELECT tags FROM Tag')
-#     # l=cursor.fetchall()
-#     # tag_list=[]
-#     # for k in range(0,len(l)):
-#     #     a=l[k][0]
-#     #     b=len(a)
-#     #     c=a[1:b-1]
-#     #     tag_list.append(c)
-#     # col1=offset+per_page
-#     if offset+per_page<n:
-#       post=p[offset:offset+per_page]
-#     else:
-#         post=p[offset:min(offset+per_page,n)]
-#     # cursor.close()
-#     # conn.close()
-#     if (post==[]) or (post is None):
-#       abort(404)
-#     return post,n
+# mydb.commit()
+# cursor.close()
+# print ("Done")
 
 
+from flask_blog.main_ import tag_page, tag_page_number,tag_list
 
-# print(sort_tag_by_frequency()[300*6:])
+class TestTags(unittest.TestCase):
+    def test_tags(self):
+        x = tag_page(6,1)
+        l=[]
+        self.assertEqual((l, 6),x)
 
 
-
-def get_tags(offset=0,per_page=6):
-
-    conn = requestConnection()
-    cursor = requestCursor(conn)
-    l = cursor.execute('select count(tags),tags from Tag group by tags order by count(*) desc limit 6 offset '+str(offset))
-    l = list(cursor.fetchall())
-    cursor.execute('SELECT count( DISTINCT(tags) ) FROM Tag')
-    n=cursor.fetchall()[0][0]
-    if (l==[]) or (l is None): abort(404)
-    return l,n
