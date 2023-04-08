@@ -9,4 +9,4 @@ jobs:
       - name: React Build Test
         run: |
           ls
-        working-directory: ./
+        working-directory: .
