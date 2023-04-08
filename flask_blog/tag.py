@@ -74,3 +74,13 @@ def get_tags(offset=0,per_page=6):
     n=cursor.fetchall()[0][0]
     if (l==[]) or (l is None): abort(404)
     return l,n
+
+def get_tags_list():
+    conn = requestConnection()
+    cursor = requestCursor(conn)
+    l = cursor.execute('select tags from Tag group by tags')
+    print(l)
+    l = list(cursor.fetchall())
+    
+    if (l==[]) or (l is None): abort(404)
+    return l 
