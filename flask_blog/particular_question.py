@@ -52,7 +52,7 @@ def particular_que_from_id(id):
     conn.close()
     return a
 # print(answer_from_id())
-# print(particular_que_from_id(330))
+# print(particular_que_from_id(80))
 
 def answer_from_parent_id(id):
     conn = requestConnection()
@@ -64,7 +64,6 @@ def answer_from_parent_id(id):
         Answer_list.append(l[k])
     return Answer_list
 
-# print(answer_from_parent_id(80))
 def score_question(Up,id):
         conn = requestConnection()
         cursor = requestCursor(conn)
@@ -83,13 +82,79 @@ def score_question(Up,id):
         cursor.close()
         conn.close()
         l=particular_que_from_id(id)
-        n=1
-        ans_list=answer_from_parent_id(id)
-        m=len(ans_list)
-        return l,n,ans_list,m 
-# print(score_question(0,80))
+        # n=1
+        # ans_list=answer_from_parent_id(id)
+        # m=len(ans_list)
+        # return l,n,ans_list,m 
+        return l[0][3]
 
-def score_answer(Up,id):
+# def score_answer(Up,id):
+#         conn = requestConnection()
+#         cursor = requestCursor(conn)
+#         cursor.execute('select Score from Answer where id='+str(id))
+#         score=cursor.fetchone()
+#         cursor.execute('Update Answer set Score= '+str(score[0]+Up)+' where Id='+str(id))
+#         Ownerid=cursor.execute('select Owner_User_Id,Score from Answer where Id= '+str(id))
+#         Ownerid=cursor.fetchone()
+#         ownscore=Ownerid[1]
+#         Ownerid=Ownerid[0]
+#         if Up==1:
+#           cursor.execute('Update User set up_votes='+str(ownscore+Up)+' where id='+str(Ownerid))
+#         else:
+#             cursor.execute('Update User set down_votes='+str(ownscore+Up)+' where id='+str(Ownerid))
+#         conn.commit()
+#         cursor.execute('select Parent_Id from Answer where id='+str(id))
+#         Pid=cursor.fetchone()
+#         l=particular_que_from_id(Pid[0])
+#         n=1
+#         ans_list=answer_from_parent_id(Pid[0])
+#         m=len(ans_list)
+#         cursor.close()
+#         conn.close()
+#         return l,n,ans_list,m 
+
+# def sort_ans_by_time(id,time):
+#     conn = requestConnection()
+#     cursor = requestCursor(conn)
+#     l=particular_que_from_id(id)
+#     n=1
+#     if time:
+#       ans_list= cursor.execute('SELECT * FROM Answer  where Parent_ID = ' + str(id)+' Order by Creation_Date')
+#     else:
+#         ans_list= cursor.execute('SELECT * FROM Answer  where Parent_ID = ' + str(id)+' Order by Score')
+#     ans_list = cursor.fetchall()
+#     Answer_list = []
+#     m=len(ans_list)
+#     for k in range(m):
+#         Answer_list.append(ans_list[k])
+#     cursor.close()
+#     conn.close()
+#     return l,n,Answer_list,m 
+
+# def put_answer(id,body): #has to correct this function
+def put_answer(id,ownerid,body):
+    if body!="":
+        conn = requestConnection()
+        cursor = requestCursor(conn)
+        # l=particular_que_from_id(id)
+        # n=1 
+        cursor.execute('insert into Answer (Owner_User_Id,Parent_ID,Score,Body) Values ("%s","%s","%s","%s")',(ownerid,id,0,body))
+        # cursor.execute('insert into Answer (Parent_ID,Score,Body) Values ("%s","%s","%s")',(id,0,body))
+        conn.commit()
+        cursor.close()
+        conn.close()
+        # ans_list=answer_from_parent_id(id)
+        # m=len(ans_list)
+        # return l,n,ans_list,m 
+        return ""
+    else:
+        return ""
+
+
+# print(answer_from_parent_id(80))
+
+
+def one_ans(Up,id):
         conn = requestConnection()
         cursor = requestCursor(conn)
         cursor.execute('select Score from Answer where id='+str(id))
@@ -104,70 +169,6 @@ def score_answer(Up,id):
         else:
             cursor.execute('Update User set down_votes='+str(ownscore+Up)+' where id='+str(Ownerid))
         conn.commit()
-        cursor.execute('select Parent_Id from Answer where id='+str(id))
-        Pid=cursor.fetchone()
-        l=particular_que_from_id(Pid[0])
-        n=1
-        ans_list=answer_from_parent_id(Pid[0])
-        m=len(ans_list)
         cursor.close()
         conn.close()
-        return l,n,ans_list,m 
-# print(score_answer(0,92))
-
-def sort_ans_by_time(id,time):
-    conn = requestConnection()
-    cursor = requestCursor(conn)
-    l=particular_que_from_id(id)
-    n=1
-    if time:
-      ans_list= cursor.execute('SELECT * FROM Answer  where Parent_ID = ' + str(id)+' Order by Creation_Date')
-    else:
-        ans_list= cursor.execute('SELECT * FROM Answer  where Parent_ID = ' + str(id)+' Order by Score')
-    ans_list = cursor.fetchall()
-    Answer_list = []
-    m=len(ans_list)
-    for k in range(m):
-        Answer_list.append(ans_list[k])
-    cursor.close()
-    conn.close()
-    return l,n,Answer_list,m 
-# print(sort_ans_by_time(80,1))
-def put_answer(id,body):
-# def put_answer(id,ownerid,body):
-    if body!="":
-        conn = requestConnection()
-        cursor = requestCursor(conn)
-        l=particular_que_from_id(id)
-        n=1 
-        # cursor.execute('insert into Answer (Owner_User_Id,Parent_ID,Score,Body) Values ("%s","%s","%s","%s")',(ownerid,id,0,body))
-        cursor.execute('insert into Answer (Parent_ID,Score,Body) Values ("%s","%s","%s")',(id,0,body))
-        conn.commit()
-        cursor.close()
-        conn.close()
-        ans_list=answer_from_parent_id(id)
-        m=len(ans_list)
-        return l,n,ans_list,m 
-    else:
-        l=particular_que_from_id(id)
-        n=1 
-        ans_list=answer_from_parent_id(id)
-        m=len(ans_list)
-        return l,n,ans_list,m 
-# print(put_answer(80,""))
-
-# print(answer_from_parent_id(80))
-# @app.route('/')
-# def particular_question():
-#     l=particular_que_from_id(80)
-#     n=1
-#     ans_list=answer_from_parent_id(80)
-#     # print(ans_list)
-#     m=len(ans_list)
-#     return render_template('particular_question.html',l=l,n=n,ans_list=ans_list,m=m)
-
-# if __name__ == '__main__':
-#     app.run(host='0.0.0.0',debug=True,port=7015)
-# print(answer_from_parent_id(90))
-# print(score_question(0,90))
-# print(put_answer(90,""))
+        return score[0]+Up
