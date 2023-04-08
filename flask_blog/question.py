@@ -10,7 +10,7 @@ def requestConnection():
     mydb = MySQLdb.connect(host='localhost',
     user='root',
     passwd='root',
-    db='test3')
+    db='test')
     return mydb
 
 def requestCursor(conn):
