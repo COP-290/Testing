@@ -9,5 +9,5 @@ jobs:
       - name: React Build Test
         run: |
           ls
-        working-directory: ${{ env.working-directory }}
+        working-directory: ${{ env.working-directory }}/frontend
 
