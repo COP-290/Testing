@@ -47,7 +47,7 @@ jobs:
 
       - name: Clean temp directory
         run: |
-          python flask_blog/main_.py
           python -m coverage run -m unittest
           python -m coverage report
+          #python flask_blog/main_.py
         working-directory: ./
