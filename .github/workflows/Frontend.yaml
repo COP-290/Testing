@@ -2,11 +2,11 @@ name: Frontend Test
 run-name: Frontend Test
 on: [push]
 jobs:
-  SQL-Test:
+  Frontend-Test:
     runs-on: ubuntu-latest
     steps:              
 
       - name: React Build Test
         run: |
           ls
-        working-directory: .
+        working-directory: /frontend
