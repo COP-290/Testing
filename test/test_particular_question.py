@@ -55,7 +55,7 @@ class TestParticular_question(unittest.TestCase):
         self.assertEqual((sortans),x)
     
     def test_put_answer(self):
-        x = put_answer(90,"")
+        x = one_ans(90,"")
         # print(x)
         # print(List)
         self.assertEqual((putans),x)
