@@ -84,3 +84,6 @@ def get_tags_list():
     
     if (l==[]) or (l is None): abort(404)
     return l 
+
+print(get_tags())
+print(get_tags_list())
