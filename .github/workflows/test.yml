@@ -13,7 +13,7 @@ jobs:
           packages: |
             coverage
             flask-mysqldb
-            werkzeug.exceptions
+            werkzeug
             flask_paginate
             
       - name: Setup Database
