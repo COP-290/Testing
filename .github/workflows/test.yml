@@ -15,6 +15,7 @@ jobs:
             flask-mysqldb
             werkzeug
             flask_paginate
+            datetime
             
       - name: Setup Database
         run: |
